@@ -1,0 +1,10 @@
+$$\frac{\partial^2 Q}{\partial t^2} - c_t^2(z) \frac{\partial^2 Q}{\partial z^2} + \Omega^2(z)Q = 0 \qquad\text{(1)}$$
+
+which by fourier analysing in time gives the following equation:
+
+$$\frac{d^2 Q(z)}{d t^2} + \left( \frac{\omega^2 - \Omega^2(z)}{c_t^2(z)} \right)Q(z) = 0 \qquad\text{(2)}$$
+	
+
+Compute the atmospheric cut-off frequenccy (From Roberts 2004)
+
+$$ \omega_{c}=\frac{\gamma g}{4\pi c_{s}}\sqrt{1+2\frac{d}{dz}\frac{P}{\rho g}}$$

@@ -1,0 +1,214 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdftex 2013.11.27)  27 NOV 2013 20:54
+entering extended mode
+**C:/Users/mike/Dropbox/swat_papers_mkg/solareigenmodes_aanda2013/anda/aa.cls
+(C:/Users/mike/Dropbox/swat_papers_mkg/solareigenmodes_aanda2013/anda/aa.cls
+! Undefined control sequence.
+l.35 \NeedsTeXFormat
+                    {LaTeX2e}[1995/06/01]
+? 
+! Undefined control sequence.
+l.36 \ProvidesClass
+                   {aa}
+? 
+! Undefined control sequence.
+l.38 \LoadClass
+               [fleqn]{article}
+? 
+! Undefined control sequence.
+l.40 \DeclareOption
+                   {letter}{\aa@lettertrue}
+? 
+! Undefined control sequence.
+l.42 \DeclareOption
+                   {onlletter}{\aa@onllettertrue}
+? 
+! Undefined control sequence.
+l.44 \DeclareOption
+                   {online}{\aa@onlinetrue}
+? 
+! Undefined control sequence.
+l.46 \DeclareOption
+                   {referee}{\aa@refereetrue}
+? 
+! Undefined control sequence.
+l.48 \DeclareOption
+                   {rnote}{\aa@rnotetrue}
+? 
+! Undefined control sequence.
+l.50 \DeclareOption
+                   {contents}{\aa@contentstrue}
+? 
+! Undefined control sequence.
+l.52 \DeclareOption
+                   {contentsAut}{\aa@contentsAuttrue}
+? 
+! Undefined control sequence.
+l.53 \newlength
+               \aa@fullwidth
+? 
+! Undefined control sequence.
+l.54 \newlength
+               \aa@fullheight
+? 
+! Undefined control sequence.
+l.55 \DeclareOption
+                   {a4paper}{%
+? 
+! Undefined control sequence.
+l.56   \renewcommand
+                    *\aa@paper{a4paper}%
+? 
+! Undefined control sequence.
+l.57   \setlength
+                 \aa@fullwidth{184mm}%
+? 
+! Undefined control sequence.
+l.58   \renewcommand
+                    *\aa@leftmarginpaper{(21cm-\aa@fullwidth)/2}%
+? 
+! Undefined control sequence.
+l.59   \setlength
+                 \aa@fullheight{705pt}%
+? 
+! Undefined control sequence.
+l.61 \DeclareOption
+                   {letterpaper}{%
+? 
+! Undefined control sequence.
+l.62   \renewcommand
+                    *\aa@paper{letterpaper}
+? 
+! Undefined control sequence.
+l.63   \setlength
+                 \aa@fullwidth{184mm}%
+? 
+! Undefined control sequence.
+l.64   \renewcommand
+                    *\aa@leftmarginpaper{(8.5in-\aa@fullwidth)/2}%
+? 
+! Undefined control sequence.
+l.65   \setlength
+                 \aa@fullheight{705pt-1.76cm}%
+? 
+! Undefined control sequence.
+l.67 \DeclareOption
+                   {legalpaper}{%
+? 
+! Undefined control sequence.
+l.68   \renewcommand
+                    *\aa@paper{legalpaper}%
+? 
+! Undefined control sequence.
+l.69   \setlength
+                 \aa@fullwidth{184mm}%
+? 
+! Undefined control sequence.
+l.70   \renewcommand
+                    *\aa@leftmarginpaper{(8.5in-\aa@fullwidth)/2}%
+? 
+! Undefined control sequence.
+l.71   \setlength
+                 \aa@fullheight{705pt}%
+? 
+! Undefined control sequence.
+l.73 \newcommand
+                *\aa@paper{}
+? 
+! Undefined control sequence.
+l.74 \newcommand
+                *\aa@leftmarginpaper{}
+? 
+! Undefined control sequence.
+l.76 \DeclareOption
+                   {onecolumn}{%
+? 
+! Undefined control sequence.
+l.78   \renewcommand
+                    *\aa@column{onecolumn}%
+? 
+! Undefined control sequence.
+l.80 \DeclareOption
+                   {twocolumn}{%
+? 
+! Undefined control sequence.
+l.82   \renewcommand
+                    *\aa@column{twocolumn}%
+? 
+! Undefined control sequence.
+l.84 \newcommand
+                *\aa@column{}
+? 
+! Undefined control sequence.
+l.86 \@
+       wideboxfnfalse
+? 
+! Undefined control sequence.
+l.87 \DeclareOption
+                   {wideboxfn}{\@wideboxfntrue}
+? 
+! Undefined control sequence.
+l.87 \DeclareOption{wideboxfn}{\@
+                                 wideboxfntrue}
+? 
+! Undefined control sequence.
+l.89 \DeclareOption
+                   {longfn}{\aa@longfntrue}
+? 
+! Undefined control sequence.
+l.91 \DeclareOption
+                   {longauth}{\aa@longauthtrue}
+? 
+! Undefined control sequence.
+l.92 \DeclareOption
+                   {ascii}{%
+? 
+! Undefined control sequence.
+l.95 \DeclareOption
+                   {latin1}{%
+? 
+! Undefined control sequence.
+l.98 \DeclareOption
+                   {latin9}{%
+? 
+! Undefined control sequence.
+l.101 \DeclareOption
+                    {ansinews}{%
+? 
+! Undefined control sequence.
+l.104 \DeclareOption
+                    {applemac}{%
+? 
+! Undefined control sequence.
+l.107 \DeclareOption
+                    {utf8}{%
+? 
+! Undefined control sequence.
+l.110 \newcommand
+                 *\aa@font{}
+? 
+! Undefined control sequence.
+l.111 \DeclareOption
+                    {cm}{%
+? 
+! Undefined control sequence.
+l.116 \DeclareOption
+                    {showoverfull}{\setlength\overfullrule{5\p@}}
+? 
+! Undefined control sequence.
+l.116 \DeclareOption{showoverfull}{\setlength
+                                             \overfullrule{5\p@}}
+? 
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.116 ...on{showoverfull}{\setlength\overfullrule{
+                                                  5\p@}}
+? 
+! Emergency stop.
+<to be read again> 
+                   {
+l.116 ...on{showoverfull}{\setlength\overfullrule{
+                                                  5\p@}}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -1,0 +1,162 @@
+
+<!-- saved from url=(0045)http://ftp.edpsciences.org/pub/aa/readme.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>LaTeX2e class for A&amp;A</title>
+<script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/menu_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><meta name="find_proxy.js"><meta name="document_iterator.js"><meta name="name_injection_builder.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="number_injection_builder.js"><meta name="change_sink.js"><meta name="menu_injection_builder.js"><meta name="string_finder.js"></head>
+<body bgcolor="#FFFFFF">
+<hr>
+<font size="+2" face="ARIAL"><b>LaTeX2e v8.2 class for Astronomy &amp; Astrophysics</b></font>
+<br> (c) EDP Sciences, 2013 <p>
+</p><hr>
+<p>
+<font size="+2"><em>What's New in AA v8.2 (April 2013)</em></font>
+</p>
+<b>Main change in the 8.x versions</b>
+<br>
+A&amp;A now accepts TeX files designed for LaTeX  as well as PDFLaTeX.
+<br>
+Depending on your preferred LaTeX engine (LaTeX or pdfLaTeX), figures
+should be sent as encapsulated PostScript files or in any other format
+as PDF, JPG, TIF, BMP, and GIF (compatible with pdfLaTeX).
+<p>
+Change between 8.1 and 8.2
+<br>
+To enable compatibility with 7.x versions, an option has been            
+added. 
+If you don't write structured references (according to
+to the author-year natbib style), use this option:<br>
+\documentclass[bibyear]{aa} 
+</p><p>
+The following files are part of the macro package AA
+</p><ul>
+<p></p><li><a href="http://ftp.edpsciences.org/pub/aa/readme.txt">readme.txt</a>: Information (equivalent to this page)
+<p></p></li><li><a href="http://ftp.edpsciences.org/pub/aa/aa.cls">aa.cls</a>: The document class file
+<p></p></li><li><a href="http://ftp.edpsciences.org/pub/aa/aadoc.pdf">aadoc.pdf</a>: User's Guide (pdf)
+<p></p></li><li><a href="http://ftp.edpsciences.org/pub/aa/aa.dem">aa.dem</a>: Example of an article (LaTeX source)
+<ul>
+<p></p><li>Directory for BIBTeX style
+<p></p></li><li><a href="http://ftp.edpsciences.org/pub/aa/bibtex/aa.bst">aa.bst</a>: Bibliography style file
+<p></p></li><li><a href="http://ftp.edpsciences.org/pub/aa/bibtex/natbib.sty">natbib.sty</a>: This package reimplements
+the LaTeX \cite command
+<p></p></li><li><a href="http://ftp.edpsciences.org/pub/aa/bibtex/natnotes.pdf">natnotes.pdf</a>: Brief reference sheet for Natbib (pdf)
+</li></ul>
+</li></ul>
+Remember to transfer dvi and pdf files as binaries!
+<p>
+All files are compressed in a single archive:<br>
+<a href="http://ftp.edpsciences.org/pub/aa/aa-package.tar.gz">aa-package.tar.gz</a>
+</p><p>
+</p><hr>
+<font size="+2" face="ARIAL"><b>Tips</b></font>
+<hr>
+<font size="+2"><em>How to add in-text citation clickers that link to the corresponding
+ADS abstract pages.</em></font>
+<br>
+Contributed by Robert J. Rutten of Utrecht University.
+<p>
+This is a latex recipe to turn the in-text citations into clickers (in
+xdvi and the pdf or html output file) that link into ADS, opening the
+corresponding abstract page in the browser.  In this manner, an
+on-screen reader of your paper may open the cited abstract or download
+the cited paper in parallel to reading your paper, without jumping to
+the reference list of the latter.
+</p><p>
+Insert the following commands into the preamble of your latex file:
+</p><p>
+<code style="background-color:#cfdbec; display:block">
+\usepackage{natbib,twoopt}<br>
+\usepackage[breaklinks=true]{hyperref} %% to avoid \citeads line fills<br>
+\bibpunct{(}{)}{;}{a}{}{,}             %% natbib format for A&amp;A and ApJ<br>
+\makeatletter<br>
+  \newcommandtwoopt{\citeads}[3][][]{\href{http://adsabs.harvard.edu/abs/#3}%<br>
+    {\def\hyper@linkstart##1##2{}%<br>
+     \let\hyper@linkend\@empty\citealp[#1][#2]{#3}}}<br>
+  \newcommandtwoopt{\citepads}[3][][]{\href{http://adsabs.harvard.edu/abs/#3}%<br>
+    {\def\hyper@linkstart##1##2{}%<br>
+     \let\hyper@linkend\@empty\citep[#1][#2]{#3}}}<br>
+  \newcommandtwoopt{\citetads}[3][][]{\href{http://adsabs.harvard.edu/abs/#3}%<br>
+    {\def\hyper@linkstart##1##2{}%<br>
+     \let\hyper@linkend\@empty\citet[#1][#2]{#3}}}<br>
+  \newcommandtwoopt{\citeyearads}[3][][]%<br>
+    {\href{http://adsabs.harvard.edu/abs/#3}<br>
+    {\def\hyper@linkstart##1##2{}%<br>
+     \let\hyper@linkend\@empty\citeyear[#1][#2]{#3}}}<br>
+\makeatother<br>
+</code>
+</p><p>
+Usage: use ADS biblabels and enter one per \citeads command, as in:
+</p><p>
+<code style="background-color:#cfdbec; display:block">
+The existence of two emission features in the solar spectrum near<br>
+12~$\mu$m was announced by<br>
+\citetads{1981ApJ...247L..97M}. %% Murcray+others, MgI features<br>
+We explained them long ago<br>
+\citepads[see][]{1992A&amp;A...253..567C}, %% Carlsson+Rutten+Shchukina MgI<br>	
+using the standard model of the solar atmosphere formulated in the<br>
+monumental papers by Vernazza et al.\ <br>
+(\citeyearads{1973ApJ...184..605V}, % VALI <br>
+ \citeyearads{1976ApJS...30....1V}, % VALII <br>
+ \citeyearads{1981ApJS...45..635V}). % VALIII <br>
+</code>
+</p><p>
+This trick was contributed by Robert J. Rutten of Utrecht University.
+The above example of its usage is taken from his latex manual and template
+for students at 
+<a href="http://www.staff.science.uu.nl/~rutte101/Report_recipe.html">http://www.staff.science.uu.nl/~rutte101/Report_recipe.html</a>
+<br>
+</p><hr>
+History
+<hr>
+The new 2001 Astronomy and Astrophysics journal.
+<br>
+
+In order to ensure the smoothest transition for both authors and publishers,
+Springer-Verlag has kindly granted EDP Sciences the permission to use the
+LaTeX macro package that they developed for A&amp;A Main journal.
+<br>
+
+Only  minor changes have been incorporated between the Springer class (1999)
+and the EDP Sciences class for the new journal.
+<br>
+Please, note:
+<br>
+- that the abstract is now a command (\abstract{...}) and not an environment,  
+so the \maketitle command has to be placed after the abstract and the keywords
+<br>
+- and that the command \thesaurus does no longer exist.
+<br>
+
+The journal is now printing using the Postscript TX Times-fonts. 
+<br>
+The TX fonts consist of virtual text roman fonts using Adobe Times with some 
+modified and additional text symbols. 
+<br>
+The TX fonts are distributed under the GNU public license and are available 
+in the LaTeX distributions since December 2000.
+<br>
+In any case, these fonts and the installation guide are also available in 
+every public TeX archive server, i.e.:
+<br>
+
+http://www.tug.org/tex-archive/fonts/txfonts/
+<br>
+ftp://ftp.dante.de/tex-archive/fonts/txfonts/
+<br>
+ftp://ftp.tex.ac.uk/tex-archive/fonts/txfonts/
+<br>
+
+Please contact your system administrator to install it. 
+<br>
+
+Since this change of fonts results in a slightly different page make-up from 
+CM fonts, we encourage you to use TX fonts.
+To proceed, all you need is: 
+<br>
+\documentclass{aa}
+<br>
+\usepackage{txfonts}
+<br>
+... 
+<br>
+
+
+</body><span id="skype_highlighting_settings" display="none" autoextractnumbers="1" hightlightingswitched="0"></span><object id="skype_plugin_object" location.href="http://ftp.edpsciences.org/pub/aa/readme.html" location.hostname="ftp.edpsciences.org" style="position: absolute; visibility: hidden; left: -100px; top: -100px;" width="0" height="0" type="application/x-vnd.skype.click2call.chrome.5.7.0"></object></html>

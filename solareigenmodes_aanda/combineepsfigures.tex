@@ -1,0 +1,86 @@
+http://tex.stackexchange.com/questions/84889/combining-multiple-eps-files-into-a-single-figure
+
+
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\begin{document}
+\begin{figure}[htb]
+\centering
+  \begin{tabular}{@{}cccc@{}}
+    \includegraphics[width=.23\textwidth]{example-image-a} &
+    \includegraphics[width=.23\textwidth]{example-image-b} &
+    \includegraphics[width=.23\textwidth]{example-image-c} &
+    \includegraphics[width=.23\textwidth]{example-image}   \\
+    \includegraphics[width=.23\textwidth]{example-image-a} &
+    \includegraphics[width=.23\textwidth]{example-image-b} &
+    \includegraphics[width=.23\textwidth]{example-image-c} &
+    \includegraphics[width=.23\textwidth]{example-image}   \\
+    \includegraphics[width=.23\textwidth]{example-image-a} &
+    \includegraphics[width=.23\textwidth]{example-image-b} &
+    \includegraphics[width=.23\textwidth]{example-image-c} &
+    \includegraphics[width=.23\textwidth]{example-image}   \\
+    \multicolumn{4}{c}{\includegraphics[width=.23\textwidth]{example-image-a}}
+  \end{tabular}
+  \caption{This is   some figure side by side}
+\end{figure}
+\end{document}
+
+
+
+
+
+
+
+
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+
+\begin{document}
+\begin{figure}[htb]
+\centering
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-a}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-b}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-c}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image}}\\
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-a}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-b}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-c}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image}}\\
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-a}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-b}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image-c}}\hfill
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image}}\\
+  \subfloat[A subfigure]{%
+    \includegraphics[width=.24\textwidth]{example-image}}
+  \caption{This is   lot of figures arranged side by side in matrix form with captions for each and a main caption}\label{fig:1}
+\end{figure}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
