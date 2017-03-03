@@ -12,7 +12,10 @@
 %directory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/';
 % directory='/fastdata/cs1mkg/smaug/washing_mach/';
 %directory='/shared/sp2rc2/Shared/simulations/washing_mach/';
-directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
+% directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
+%directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
+%directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
+directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
 extension='.out';
 
@@ -27,12 +30,17 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/images_3d_vsecs/';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
-ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_3d_vsecs_30/';
+%ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_3d_vsecs_30/';
+%ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/images_3d_vsecs_6/';
+%ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_3d_vsecs_6_stream/';
+ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_vsecs_6_stream/';
+
 nextension='.jpg';
 figure;
-nt=1999;
-for i=1:1:nt
-%for i=1519:2632
+nt=1034;
+lev=6;
+for i=30:1:nt
+% for i=20:20
 %for i=2631:2632
     
 
@@ -131,22 +139,35 @@ clear tmp;
    myval=shiftdim(val4,1);
    
      
-%     val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
-%     val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
-%     val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
+%      val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
+%      val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
+%      val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
 
-     val3=reshape(wd(6,nrange,nrange,nrange),124,124,124); 
-     val2=reshape(wd(7,nrange,nrange,nrange),124,124,124); 
-     val1=reshape(wd(8,nrange,nrange,nrange),124,124,124);
-
+     val3=reshape(wd(2,nrange,nrange,nrange),124,124,124); 
+     val2=reshape(wd(3,nrange,nrange,nrange),124,124,124); 
+     val1=reshape(wd(4,nrange,nrange,nrange),124,124,124);
+% 
 
 
     
-val4=sqrt(val1.^2 + val3.^2+val2.^2);
-mytval=shiftdim(val4,1);
+%val4=sqrt(val1.^2 + val3.^2+val2.^2);
+%mytval=shiftdim(val4,1);
 %     val3=reshape(wd(11,nrange,nrange,nrange),124,124,124); 
 %     val2=reshape(wd(12,nrange,nrange,nrange),124,124,124); 
 %     val1=reshape(wd(13,nrange,nrange,nrange),124,124,124);
+
+
+     val1=reshape(1*wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
+     val2=reshape(1*wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
+     val3=reshape(1*wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
+% 
+%      val1=reshape(wd(6,nrange,nrange,nrange),124,124,124); 
+%      val2=reshape(wd(7,nrange,nrange,nrange),124,124,124); 
+%      val3=reshape(wd(8,nrange,nrange,nrange),124,124,124);
+% 
+    val4=sqrt(val1.^2 + val3.^2+ val2.^2);
+%  val4=sqrt(val1.^2 );
+%   myval=shiftdim(val4,1);
 
 mv1=shiftdim(val1,1);
 mv2=shiftdim(val2,1);
@@ -155,6 +176,15 @@ mv3=shiftdim(val3,1);
 mx1=shiftdim(x1,1);
 mx2=shiftdim(x2,1);
 mx3=shiftdim(x3,1);
+
+% mx1=shiftdim(x3,1);
+% mx2=shiftdim(x2,1);
+% mx3=shiftdim(x1,1);
+
+
+
+
+
 
 	R=8.3e+003;
 	mu=1.257E-6;
@@ -195,50 +225,54 @@ mx3=shiftdim(x3,1);
   %h=slice(myval,108, 96,[5 49 100]);  %used for 0,1 mode
   %h=slice(myval,65, 65,[5 49 100]);  %used for 0,0 mode
   % h=slice(myval,108, 108,[5  ]);  %used for 0,0 mode
-     h=slice(myval,[], [],[30  ]);  %used for 0,0 mode
+%      h=slice(myval,[], [],[lev  ]);  %used for 0,0 mode
   %h=slice(myval,65, 65,[5 49 100]);
-  %h=slice(myval,105, 96,8);
+  %h1=slice(myval,105, 96,8);
 
 %   hold on;
-   set(h,'EdgeColor','none','FaceColor','interp');
+%    set(h,'EdgeColor','none','FaceColor','interp');
 %   
   colormap(jet(256));
 
   
    % hcs=contourslice(mytval,[],[],[35 49 80]);
  % hcs=contourslice(mytval,[],[],[49 80]);
- hcs=contourslice(mytval,[],[],[30  ],2);
-  contvals = get(hcs,'cdata'); %data values for the contours
-colors=unique(cat(1,contvals{:}));
-colors=colors(~isnan(colors));
+%  hcs=contourslice(mytval,[],[],[lev  ],2);
+%   contvals = get(hcs,'cdata'); %data values for the contours
+% colors=unique(cat(1,contvals{:}));
+% colors=colors(~isnan(colors));
+% 
+% 
+% % Loop through all the patches returned by CONTOURSLICE, 
+% % and designate a linestyle for each
+% % Define the line style (note that this can be changed 
+% % since the code is written generally)
+% %linespec = {'-','--',':','-.'};
+% linespec = {'-.','-',':','--'};
+% %linecspec = {'-','--',':','-.'};
+% linestyles = repmat(linespec,1,ceil(length(colors)/length(linespec)));
+% linestyles = {linestyles{1:length(colors)}};
+% 
+% 
+% for n=1:length(hcs)
+%     % Find the unique color number associated with the handle
+%     color = find(max(get(hcs(n),'cdata'))==colors);
+%     % Convert the color to the associated linestyle
+%     linestyle = linestyles{color};
+%     set(hcs(n),'linestyle',linestyle);
+%     set(hcs(n),'CDataMapping','direct');
+% %     set(hcs(n),'color',[0 0 0]);
+% end
 
+  mysval=myval(:,:,6);
+ %surf(mysval,'LineStyle','none');
+ contourf(mysval,6);
 
-% Loop through all the patches returned by CONTOURSLICE, 
-% and designate a linestyle for each
-% Define the line style (note that this can be changed 
-% since the code is written generally)
-%linespec = {'-','--',':','-.'};
-linespec = {'-.','-',':','--'};
-%linecspec = {'-','--',':','-.'};
-linestyles = repmat(linespec,1,ceil(length(colors)/length(linespec)));
-linestyles = {linestyles{1:length(colors)}};
-
-
-for n=1:length(hcs)
-    % Find the unique color number associated with the handle
-    color = find(max(get(hcs(n),'cdata'))==colors);
-    % Convert the color to the associated linestyle
-    linestyle = linestyles{color};
-    set(hcs(n),'linestyle',linestyle);
-    set(hcs(n),'CDataMapping','direct');
-%     set(hcs(n),'color',[0 0 0]);
-end
-
-  
   
  %  [sx sy sz] = meshgrid(20:20:120,20:20:120,20);
  % [sx sy sz] = meshgrid(50:10:70,50:10:70,10);
-   [sx sy sz] = meshgrid(55:5:65,55:5:65,10);
+   [sx sy sz ] = meshgrid(53:5:68,53:5:68,2);
+%   [sx sy sz ] = meshgrid(53:5:68,53:5:68,10);
   msx=shiftdim(sx,1);
 msy=shiftdim(sy,1);
 msz=shiftdim(sz,1);
@@ -246,9 +280,9 @@ msz=shiftdim(sz,1);
 %sy1=shiftdim(sy,1);
 %sz1=shiftdim(sz,1);
 
- 
-% %  h=streamline(stream3(x1,x2,x3,mv1,mv2,mv3,sx,sy,sz));
- 
+%  h=streamline(stream3(mx1,mx2,mx3,mv1,mv2,mv3,msx,msy,msz));
+  h=streamline(stream3(x1,x2,x3,mv1,mv2,mv3,msx,msy,msz));
+ %h=streamline(stream3(x2,x3,x1,mv2,mv3,mv1,msy,msz,msx));
  view(3);
  
   
@@ -260,7 +294,7 @@ msz=shiftdim(sz,1);
   %set(h,'XData',ax,'YData',ay,'ZData',az);
   hax=get(h,'Children');
   %set(gca,'CameraPosition',[-606.298 -914.02 280.537]);
-  set(gca,'CameraPosition',[62 62 1135.9]);
+%   set(gca,'CameraPosition',[62 62 1135.9]);
   set(gca,'Xlim',[0 124],'Ylim',[0 124],'Zlim',[0 124]);
   
   %set(gca,'ZTickLabel',{'0';'1.6';'3.2'})
@@ -281,12 +315,12 @@ msz=shiftdim(sz,1);
   
   
   
-  
-   max1=max(myval(:,:,25:35));
+  midr=1:124;
+   max1=max(myval(midr,midr,lev-5:lev+5));
   max2=max(max1);
    max3=max(max2);
   
-  min1=min(myval(:,:,25:35));
+  min1=min(myval(midr,midr,lev-5:lev+5));
   min2=min(min1);
    min3=min(min2);
   
@@ -332,15 +366,15 @@ msz=shiftdim(sz,1);
   
 hold on;
   
+%surf(myval);
 
- 
   
   hc=colorbar();
   %set(hc,'Ylim',[minval maxval]);
   %set(hc,'Ylim',[-0.6 0.6]);
   %set(hc,'Ylim',[4*10^5 3*10^6]);
   %text(-100,0,165,timetext);
-  text(8,119,30,timetext);
+  text(8,119,lev,timetext);
   %title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (0,0) Mode Driver of Period673.4s, Applied at a Height of 100km');
   %title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (3,3) Mode Driver of Period 100.0s, Applied at a Height of 100km');
   xlabel('x-distance (Mm)');

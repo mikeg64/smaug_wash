@@ -28,14 +28,18 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
 	  k=ii[2];
 
    qt=p->qt;
-   aa=0.005;
-   av=50.0;
+   //aa=0.005;
+   //av=50.0;
+   aa=0.01;
+   av=10000.0;
  
 
-   xc2_i=0.6e6;
+   //xc2_i=0.6e6;  //y-dist
+   xc2_i=1.0e6;  //y-dist
 
    // xc2_i=0.0;
-    xc3_i=1.0e6;
+  //  xc3_i=1.0e6;  //x-dist
+   xc3_i=1.0e6;  //x-dist
 
     //xc2_i=1.0e6;
     //xc3_i=1.0e6;

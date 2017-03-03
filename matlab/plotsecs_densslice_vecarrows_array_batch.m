@@ -1,4 +1,7 @@
 
+id=getenv('SGE_TASK_ID');
+iid=sscanf(id,'%s');
+
 %directory='/fastdata/cs1mkg/smaug/spic6b0_3d/';
 %directory='/storage2/mikeg/results/spic5b0_b1G_3d/';
 %directory='/storage2/mikeg/results/spic4b0_3_3d/';
@@ -13,7 +16,8 @@
 % directory='/fastdata/cs1mkg/smaug/washing_mach/';
 %directory='/shared/sp2rc2/Shared/simulations/washing_mach/';
 % directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
-directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
+%directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/';
+directory=['/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov',id,'_kg/'];
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
 extension='.out';
 
@@ -29,16 +33,31 @@ extension='.out';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_rhosecs_vquiv_19/';
-ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
+%ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
+ndirectory=['/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov',id,'_kg/images_rhosecs_vquiv_3/'];
 nextension='.jpg';
 figure;
 nt=1999;
 nt=54;
 lev=3;
 nt=966;
-nt=130;
+nt=1599;
+
+
+
+if iid==6
+    nt=2337;
+end
+
+if iid==7
+    nt=1599;
+end
+
+if iid==8
+    nt=1599;
+end
+%for i=1:1:nt
 for i=1:1:nt
-%for i=1:1:1
 %for i=1519:2632
 %for i=2631:2632
     
@@ -194,8 +213,8 @@ mx3=shiftdim(x3,1);
    
    
   %h= slice(myval,64, 64, 4);
-  %figure('Visible','off','IntegerHandle','Off');
-  %hold on;
+  figure('Visible','off','IntegerHandle','Off');
+  hold on;
   %h=slice(myval,80, 64,8);
   %h=slice(myval,96, 96,[5 49 100]);  %used for 0,1 mode
   %h=slice(myval,96, 96,[5 49 100]);  %used for 1,1 mode
@@ -204,7 +223,7 @@ mx3=shiftdim(x3,1);
   %h=slice(myval,108, 96,[5 49 100]);  %used for 0,1 mode
   %h=slice(myval,65, 65,[5 49 100]);  %used for 0,0 mode
   % h=slice(myval,108, 108,[5  ]);  %used for 0,0 mode
-   hs=  slice(myval,[], [],[lev  ]);  %used for 0,0 mode
+     hs=slice(myval,[], [],[lev  ]);  %used for 0,0 mode
   %h=slice(myval,65, 65,[5 49 100]);
   %h=slice(myval,105, 96,8);
 
@@ -282,7 +301,7 @@ mag=sqrt(uv.*uv+uw.*uw+uu.*uu);
 % uu(indmag)=0;
 % uv(indmag)=0;
 % uw(indmag)=0;
-quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
+quiver3(x2,x1,x3,1000000.*uw,1000000.*uv,1000000.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
 
 
 
@@ -309,7 +328,7 @@ quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
   
   %grid off;
   %set(h,'XData',ax,'YData',ay,'ZData',az);
-%   hax=get(h,'Children');
+  hax=get(hs,'Children');
   %set(gca,'CameraPosition',[-606.298 -914.02 280.537]);
   set(gca,'CameraPosition',[62 62 1135.9]);
   set(gca,'Xlim',[0 124],'Ylim',[0 124],'Zlim',[0 124]);
@@ -346,7 +365,7 @@ quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
 %   maxval=10;
 %   minval=-10;
 
-      maxval=1e-7;
+      maxval=1e-9;
       minval=0;
 
 
@@ -357,7 +376,7 @@ quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
   if max3>maxval
       maxval=max3;
   end
-  maxval=1e-6;
+  maxval=1e-9;
 %   if maxval>500
 %       maxval=500;
 %   end

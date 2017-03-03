@@ -11,9 +11,9 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
    real dx,dy,dz;
    real aa, av;
    real s_period;
-   real qt,tdep,tdepx,tdepy;
+   real qt,qdt,tdep,tdepx,tdepy;
 
-   real vx,vy,vz;
+   real vx,vy,vz,vvv;
    real mvx, mvy, mvz;
 
    real exp_x,exp_y,exp_z,exp_xyz;
@@ -28,18 +28,16 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
 	  k=ii[2];
 
    qt=p->qt;
-   //aa=0.001;
-   aa=0.01;
-   //av=50.0;
-   av=10000;
+   qdt=p->dt;
+   aa=1;
+   //av=100.0;
+   av=5000.0;
  
 
-   //xc2_i=0.6e6;
-   xc2_i=1.0e6;
+   xc2_i=1.28e6;
 
    // xc2_i=0.0;
-   // xc3_i=1.1e6;
-   xc3_i=1.25e6;
+    xc3_i=1.28e6;
 
     //xc2_i=1.0e6;
     //xc3_i=1.0e6;
@@ -78,12 +76,12 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
 
     //dx=0.125e6;
     //dy=0.125e6;
-    //dz=0.125e6;
+   // dz=0.125e6;
    
 
     dx=0.0625e6;
     dy=0.0625e6;
-    dz=0.0625e6;
+    dz=5.0e6;
 
     
     
@@ -98,22 +96,29 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
         exp_xyz=exp_x*exp_y*exp_z;
 
 
+        //exp_xyz=(-(zp*zp/(dz*dz))-(yp*yp/(dy*dy))-(xp*xp/(dx*dx)));
+	//tdep=(qt<=qdt); 
+      tdep=1.0;   
+      aa=aa*exp(-(qt-6)*(qt-6)/2); //amplitude decay after 10s
+
+      //vvv=1.0d0*tdep*exp(-r1/s_rad1**2.d0-r2/s_rad2**2.d0)
+        vvv=tdep*aa*av*exp_xyz;
 
        //washing machine driver
-        aa=aa*exp_xyz;
-        av=av*exp_xyz;
+        //aa=aa*exp_xyz;
+       // av=av*exp_xyz;
        // vx=aa*exp_xyz*tdepx;    
       //  vy=aa*exp_xyz*tdepy;
 
-       w[fencode3_MODID(p,ii,rho)]+=aa*w[fencode3_MODID(p,ii,rhob)];
-       w[fencode3_MODID(p,ii,mom2)]+=av*(w[fencode3_MODID(p,ii,rhob)]+w[fencode3_MODID(p,ii,rho)]);
+       // w[fencode3_MODID(p,ii,rho)]+=aa*w[fencode3_MODID(p,ii,rhob)];
+       w[fencode3_MODID(p,ii,mom1)]+=qdt*vvv*(w[fencode3_MODID(p,ii,rhob)]+w[fencode3_MODID(p,ii,rho)]);
 
-       mvx=w[fencode3_MODID(p,ii,mom1)];
-       mvy=w[fencode3_MODID(p,ii,mom2)];
-       mvz=w[fencode3_MODID(p,ii,mom3)];
+       //mvx=w[fencode3_MODID(p,ii,mom1)];
+      // mvy=w[fencode3_MODID(p,ii,mom2)];
+      // mvz=w[fencode3_MODID(p,ii,mom3)];
 
  	
-       w[fencode3_MODID(p,ii,energy)]+=0.5*(mvx*mvx+mvy*mvy+mvz*mvz)/(w[fencode3_MODID(p,ii,rho)]+w[fencode3_MODID(p,ii,rhob)]);
+       w[fencode3_MODID(p,ii,energy)]+=qdt*0.5*(vvv*vvv)*(w[fencode3_MODID(p,ii,rho)]+w[fencode3_MODID(p,ii,rhob)]);
 
        // if(i==9 && j==63 && k==63 && ((p->it)%1000)==0 )
         //if(i==9 && j>61 && j<64 && k>61 && k<64 )

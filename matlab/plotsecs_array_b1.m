@@ -33,8 +33,9 @@ ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_bsecs/'
 
 %ndirectory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/images_3d_vsecs/';
 nextension='.jpg';
+figure('Visible','off','IntegerHandle','Off');
 figure;
- for i=1:50:2069
+ for i=1:1:2069
  % for i=20:20:20   
 %for i=1519:2632
 %for i=2631:2632

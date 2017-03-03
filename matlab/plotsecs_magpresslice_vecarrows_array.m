@@ -27,12 +27,12 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/images_3d_vsecs/';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
-ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_pmagsecs_vquiv_30/';
+ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_pmagsecs_vquiv_19/';
 nextension='.jpg';
 figure;
 nt=1999;
 nt=965;
-lev=30;
+lev=19;
 %for i=1:1:nt
 for i=1:10:nt
 %for i=1519:2632
@@ -334,7 +334,7 @@ quiver3(x1,x2,x3,uv,uw,uu,'Color',[0 0.498 0], 'LineWidth',1.5)
   
   
   
-  midr=54;70;
+  midr=54:70;
    max1=max(myval(midr,midr,lev-5:lev+5));
   max2=max(max1);
    max3=max(max2);

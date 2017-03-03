@@ -27,12 +27,12 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/images_3d_vsecs/';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
-ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_pksecs_vquiv_30/';
+ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_pksecs_vquiv_19/';
 nextension='.jpg';
 figure;
 nt=1999;
-nt=999;
-lev=30;
+nt=962;
+lev=19;
 %for i=1:1:nt
 for i=1:10:nt
 %for i=1519:2632

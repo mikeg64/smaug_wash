@@ -473,6 +473,7 @@ char *method=NULL;
 	/*********************************************************************************************************/
         //special user initialisation for the configuration 
         //this is a parallel routine
+        n=0;
         if(mode==init)
         {
 		p->mode=mode;
@@ -488,7 +489,8 @@ char *method=NULL;
 		// initialisation_user2(wmod,wd,p);
 		//write the config file to ascii
                 printf("writing ini file\n");
-		writeasciivacconfig(configinfile,*p, meta , wmod,wd,hlines,*state,mode);
+		//writeasciivacconfig(configinfile,*p, meta , wmod,wd,hlines,*state,mode);
+                writevacconfig(configfile,n,*p, meta , wmod,wd,*state);
 		#ifdef USE_MULTIGPU
 			gpusync();
 		#endif
@@ -788,6 +790,7 @@ gpusync();
        /*********************************************************************************************************/
         printf("its %d\n",nt);
         //for(n=nt+1;n<=nt;n++)
+       its=(p->it)+1;
 	for( n=its;n<=nt;n++)
 	{
 	    	p->it=n;	
@@ -1130,7 +1133,13 @@ tc=second();
 
 	  //source terms
           tc=second();
+
+       //source term for first step only
+        if(p->qt<=dt) 
+       {
+          printf("calling source %f %f\n",p->qt,dt);
           cusource(&p,&d_p,&d_state,&d_w,&d_wmod, &d_dwn1, &d_wd,order, ordero,p->dt);
+        }
                 tcal+=(second()-tc);
 	for(int ii=0; ii<=(b1+(NDIM-1)); ii++)
 	for(int idir=0; idir<NDIM; idir++)
