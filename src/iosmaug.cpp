@@ -1135,11 +1135,11 @@ tc=second();
           tc=second();
 
        //source term for first step only
-        if(p->qt<=dt) 
-       {
+       // if(p->qt<=dt) 
+      // {
           printf("calling source %f %f\n",p->qt,dt);
           cusource(&p,&d_p,&d_state,&d_w,&d_wmod, &d_dwn1, &d_wd,order, ordero,p->dt);
-        }
+       // }
                 tcal+=(second()-tc);
 	for(int ii=0; ii<=(b1+(NDIM-1)); ii++)
 	for(int idir=0; idir<NDIM; idir++)
