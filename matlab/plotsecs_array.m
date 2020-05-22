@@ -11,7 +11,10 @@
 %directory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/';
 %directory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov1_kg/';
-directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
+%directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mov3_kg_uni/';
+directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/';
+
+%directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
 extension='.out';
@@ -27,20 +30,22 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/images_3d_vsecs/';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov1_kg/images_3d_vsecs/';
-ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_bsecs/';
+%ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mov3_kg_uni/images_3d_vsecs/';
+ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/images_3d_vsecs/';
+%ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_bsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_vzslices/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_vzslices/';
 
 %ndirectory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/images_3d_vsecs/';
 nextension='.jpg';
 figure;
- for i=1:50:2069
- % for i=20:20:20   
+ %for i=1:50:2069
+  for i=0:5:300   
 %for i=1519:2632
 %for i=2631:2632
     
 
-id=int2str(500*i);
+id=int2str(1000*i);
 filename=[directory,'washmc__',id,extension];
 timetext=['time=',int2str(i),'s'];
 imfile=[ndirectory,'im1_',id,nextension];
@@ -122,37 +127,37 @@ clear tmp;
    ay=y(nrange);
    az=z(nrange);
    [x1,x2,x3] = meshgrid(ax,ay,az);
-     val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);%z component
-%    val1=reshape(wd(3,nrange,nrange,nrange),124,124,124);
-%    val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
-%     val2=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
+     %val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);%z component
+    val1=reshape(wd(3,nrange,nrange,nrange),124,124,124);
+    val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
+     val2=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
 % 
 % 
-%    val1=(val1./val2);
-%    val3=(val3./val2);
+    val1=(val1./val2);
+    val3=(val3./val2);
 % 
-%  %  val4=sqrt(val1.^2 + val3.^2);
+  val4=sqrt(val1.^2 + val3.^2);
 % 
 %    
 %     myval=shiftdim(val1,1);
-%   myval=shiftdim(val4,1);
+   myval=shiftdim(val4,1);
 %    myval=shiftdim(val1,1);
-  
+%  myval=shiftdim(val2,1);
 
 
-   val1=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
-   val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
-   val3=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
+%   val1=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
+%   val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
+%   val3=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
 
 
 %     val1=reshape(wd(11,nrange,nrange,nrange),124,124,124); 
 %     val2=reshape(wd(12,nrange,nrange,nrange),124,124,124); 
 %     val3=reshape(wd(13,nrange,nrange,nrange),124,124,124);
 
-val4=sqrt(val1.^2 + val2.^2 + val3.^2);
+%val4=sqrt(val1.^2 + val2.^2 + val3.^2);
 
    
-    myval=shiftdim(val4,1);
+ %   myval=shiftdim(val4,1);
 
   %mc=reshape(val4(120,:,:),124,124);
 
@@ -186,7 +191,7 @@ val4=sqrt(val1.^2 + val2.^2 + val3.^2);
    
 
   %h= slice(myval,64, 64, 4);
-  %figure('Visible','off','IntegerHandle','Off');
+  figure('Visible','off','IntegerHandle','Off');
   hold on;
   %h=slice(myval,80, 64,8);
   %h=slice(myval,96, 96,[5 49 100]);  %used for 0,1 mode
@@ -194,7 +199,7 @@ val4=sqrt(val1.^2 + val2.^2 + val3.^2);
   %h=slice(myval,108, 108,[5 49 85]);  %used for 2,2 mode
   %h=slice(myval,108, 108,[5 49]);  %used for 2,2 mode
   %h=slice(myval,108, 96,[5 49 100]);  %used for 0,1 mode
-  h=slice(myval,62, 62,[5 49 100]);  %used for 0,0 mode
+  h=slice(myval,62, 62,[10 49 100]);  %used for 0,0 mode
   %h=slice(myval,65, 65,[5 49 100]);
   %h=slice(myval,105, 96,8);
 sect=myval( :,:,5);
@@ -274,8 +279,8 @@ sect=myval( :,:,5);
       min2=min(min1);
       min3=min(min2);
 
-      %mval=1500;
-      mval=0.2;
+      mval=1000;
+      %mval=0.2;
       maxval=mval;
       minval=-mval;
       %minval=-3e-5;
@@ -303,7 +308,7 @@ minval=0;
        end
  
        if max3 >1
-           maxval=2;
+          % maxval=2;
        end
 
 

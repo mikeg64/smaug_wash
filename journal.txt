@@ -1,2 +1,6 @@
 Monday 18th May 2020
 Addition of washing machine model circularly polarised driver.  runwashingmachine_180h12p5Mm_kg_uni1
+
+22nd May 2020
+runwashingmachine_180h12p5Mm_kg_uni3
+Reduced the decay time to 1/4 of its original value

@@ -13,8 +13,9 @@
 % directory='/fastdata/cs1mkg/smaug/washing_mach/';
 %directory='/shared/sp2rc2/Shared/simulations/washing_mach/';
 % directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
-directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
+%directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
+directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/';
 extension='.out';
 
 %ndirectory='/storage2/mikeg/results/spic5b0_b1G_3d/images_3d_vsecs/';
@@ -29,7 +30,9 @@ extension='.out';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_rhosecs_vquiv_19/';
-ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
+%ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
+ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/images_rhosecs_vquiv/';
+
 nextension='.jpg';
 figure;
 nt=1999;
@@ -37,13 +40,13 @@ nt=54;
 lev=3;
 nt=966;
 nt=130;
-for i=1:1:nt
-%for i=1:1:1
+%for i=1:1:nt
+for i=1:1:6
 %for i=1519:2632
 %for i=2631:2632
     
-id=int2str(250*i);
-%id=int2str(1000*i);
+%id=int2str(250*i);
+id=int2str(1000*i);
 filename=[directory,'washmc__',id,extension];
 %timetext=['time=',int2str(i),'s'];
 timetext=['time=',num2str(250*i/1000),'s'];
@@ -140,13 +143,13 @@ clear tmp;
    myval=shiftdim(val4,1);
    
      
-%     val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
-%     val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
-%     val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
+     val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
+     val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
+     val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
 
-     val3=reshape(wd(6,nrange,nrange,nrange),124,124,124); 
-     val2=reshape(wd(7,nrange,nrange,nrange),124,124,124); 
-     val1=reshape(wd(8,nrange,nrange,nrange),124,124,124);
+%     val3=reshape(wd(6,nrange,nrange,nrange),124,124,124); 
+%     val2=reshape(wd(7,nrange,nrange,nrange),124,124,124); 
+%     val1=reshape(wd(8,nrange,nrange,nrange),124,124,124);
 
 
 
@@ -192,10 +195,8 @@ mx3=shiftdim(x3,1);
    %x3 = permute(x3, P);
    %myval = permute(myval, P);
    
-   
-  %h= slice(myval,64, 64, 4);
-  %figure('Visible','off','IntegerHandle','Off');
-  %hold on;
+  figure('Visible','off','IntegerHandle','Off');
+  hold on;
   %h=slice(myval,80, 64,8);
   %h=slice(myval,96, 96,[5 49 100]);  %used for 0,1 mode
   %h=slice(myval,96, 96,[5 49 100]);  %used for 1,1 mode

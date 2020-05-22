@@ -86,7 +86,7 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
        //washing machine driver
         tdepx=sin(qt*2.0*PI/s_period);
         tdepy=sin((qt-(0.25*s_period))*2.0*PI/s_period);
-        //aa=aa*exp(-(qt-582)/90); //amplitude decay after 582s
+        aa=aa*exp(-(qt-582)/90); //amplitude decay after 582s
         vx=aa*exp_xyz*tdepx;    
         vy=aa*exp_xyz*tdepy;
 
