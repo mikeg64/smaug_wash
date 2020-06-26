@@ -44,21 +44,21 @@ figure;
 nt=1999;
 nt=54;
 lev=3;
-nt=1599;
+nt=627;
 
 if iid==5
-    nt=1599;
+    nt=627;
 end
 if iid==6
-    nt=2337;
+    nt=627;
 end
 
 if iid==7
-    nt=1599;
+    nt=627;
 end
 
 if iid==8
-    nt=1599;
+    nt=627;
 end
 
 

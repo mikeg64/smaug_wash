@@ -41,20 +41,23 @@ nt=1999;
 nt=54;
 lev=3;
 nt=966;
-nt=1599;
+nt=627;
 
+if iid==5
+    nt=627;
+end
 
 
 if iid==6
-    nt=2337;
+    nt=627;
 end
 
 if iid==7
-    nt=1599;
+    nt=627;
 end
 
 if iid==8
-    nt=1599;
+    nt=627;
 end
 %for i=1:1:nt
 for i=1:1:nt

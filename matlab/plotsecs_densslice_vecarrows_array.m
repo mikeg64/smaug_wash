@@ -15,7 +15,7 @@
 % directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
-directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/';
+directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni3/';
 extension='.out';
 
 %ndirectory='/storage2/mikeg/results/spic5b0_b1G_3d/images_3d_vsecs/';
@@ -31,25 +31,25 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_rhosecs_vquiv_19/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
-ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/images_rhosecs_vquiv/';
+ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni3/images_rhosecs_vquiv/';
 
 nextension='.jpg';
-figure;
+%figure;
 nt=1999;
 nt=54;
 lev=3;
 nt=966;
 nt=130;
 %for i=1:1:nt
-for i=1:1:6
+for i=562:1:650
 %for i=1519:2632
 %for i=2631:2632
     
 %id=int2str(250*i);
 id=int2str(1000*i);
 filename=[directory,'washmc__',id,extension];
-%timetext=['time=',int2str(i),'s'];
-timetext=['time=',num2str(250*i/1000),'s'];
+timetext=['time=',int2str(i),'s'];
+%timetext=['time=',num2str(250*i/1000),'s'];
 imfile=[ndirectory,'im1_',id,nextension];
 disp([id filename]);
    fid=fopen(trim(filename));
@@ -129,27 +129,27 @@ clear tmp;
    ay=y(nrange);
    az=z(nrange);
    [x1,x2,x3] = meshgrid(ax,ay,az);
-%    val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);
-%     val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
-%       val5=reshape(wd(3,nrange,nrange,nrange),124,124,124);  
-%      val2=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
- val1=reshape(wd(1,nrange,nrange,nrange),124,124,124);
+    val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);
+     val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
+       val5=reshape(wd(3,nrange,nrange,nrange),124,124,124);  
+      val2=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
+% val1=reshape(wd(1,nrange,nrange,nrange),124,124,124);
 
-%     val5=(val5./val2);
-%     val3=(val3./val2);
+     val5=(val5./val2);
+     val3=(val3./val2);
 %    val4=val1./val2;
-%    val4=sqrt(val5.^2 + val3.^2);
-   val4=sqrt(val1.^2 );
+    val4=sqrt(val5.^2 + val3.^2+val1.^2);
+%   val4=sqrt(val1.^2 );
    myval=shiftdim(val4,1);
    
      
-     val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
-     val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
-     val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
+%     val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
+%     val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
+%     val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
 
-%     val3=reshape(wd(6,nrange,nrange,nrange),124,124,124); 
-%     val2=reshape(wd(7,nrange,nrange,nrange),124,124,124); 
-%     val1=reshape(wd(8,nrange,nrange,nrange),124,124,124);
+     val3=reshape(wd(6,nrange,nrange,nrange),124,124,124); 
+     val2=reshape(wd(7,nrange,nrange,nrange),124,124,124); 
+     val1=reshape(wd(8,nrange,nrange,nrange),124,124,124);
 
 
 
@@ -351,6 +351,8 @@ quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
       minval=0;
 
 
+
+
   if min3<minval
       minval=min3;
   end
@@ -359,6 +361,11 @@ quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
       maxval=max3;
   end
   maxval=1e-6;
+
+
+maxval=1.0;
+minval=0.0;
+
 %   if maxval>500
 %       maxval=500;
 %   end
@@ -406,8 +413,8 @@ hold on;
   zlabel('Height (Mm)');
   
 %  ylabel(hc,'Vz [m/s]');
-   ylabel(hc,'Density');
-  
+%   ylabel(hc,'Density');
+  ylabel(hc,'V [m/s]');
   
   print('-djpeg', imfile);
   
