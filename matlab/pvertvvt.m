@@ -7,14 +7,14 @@
 %directory='/storage2/mikeg/results/spic4p3a_0_1_3d/';
 %directory='/storage2/mikeg/results/spic6p7a_0_0_3d/';
 %directory='/storage2/mikeg/results/spic2p3a_0_3_3d/';
-directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
+directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
 extension='.out';
 bdir='/fastdata-sharc/cs1mkg/smaug_wash/';
 rdirectory='washmc_2p5_2p5_12p5_mach180_uni4';
 nt=630;
 
 
-%directory='/fastdata/cs1mkg/smaug/spic5b0_2_3d_rep/';
+%directory='/fastdata-sharc/cs1mkg/smaug/spic5b0_2_3d_rep/';
 directory=[bdir,rdirectory,'/'];
 extension='.out';
 
@@ -30,7 +30,7 @@ extension='.out';
 ndirectory=[bdir,rdirectory,'images_3d_vsecs/'];
 nextension='.jpg';
 %wspacename='1p53a0_3_3dmatlab_perturb.mat';
-wspacename=[directory,'vmagverustime.mat']
+wspacename=[directory,'vvzverustime.mat']
 
 
 %evelchrom_vh=zeros(nt,124);  %  horizontal section in chrom at  20
@@ -46,9 +46,9 @@ wspacename=[directory,'vmagverustime.mat']
 %evel1Mm_vhy=zeros(nt,124);  %vertical section at 1Mm  31
 %evelp5Mm_vhy=zeros(nt,124);  %vertical section at 0.5Mm 15
 
-evel2Mm_v=zeros(124,124,nt);  %vertical section at 2Mm  62
-evel1Mm_v=zeros(124,124,nt);  %vertical section at 1Mm  31
-evelp5Mm_v=zeros(124,124,nt);  %vertical section at 0.5Mm 15
+evelv2Mm_v=zeros(124,124,nt);  %vertical section at 2Mm  62
+evelv1Mm_v=zeros(124,124,nt);  %vertical section at 1Mm  31
+evelvp5Mm_v=zeros(124,124,nt);  %vertical section at 0.5Mm 15
 
 for i=1:1:nt
 %for i=1:100:nt
@@ -139,12 +139,12 @@ clear tmp;
    az=z(nrange);
    [x1,x2,x3] = meshgrid(ax,ay,az);
    val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);
-   val2=reshape(wd(3,nrange,nrange,nrange),124,124,124);
-   val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
-   val4=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
+   %val2=reshape(wd(3,nrange,nrange,nrange),124,124,124);
+   %val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
+   val2=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
 
 
- %  myval=shiftdim(val1./val2,1);
+   myval=shiftdim(val1./val2,1);
 
 
 %    val1=reshape(wd(6,nrange,nrange,nrange),124,124,124);
@@ -155,14 +155,14 @@ clear tmp;
 %     val2=reshape(wd(3,nrange,nrange,nrange),124,124,124);
 %     val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
 
-    val1=(val1./val4);
-    val2=(val2./val4);
-    val3=(val3./val4);
-   val4=sqrt(val1.^2 + val3.^2+val2.^2);
+%    val1=(val1./val4);
+%    val2=(val2./val4);
+%    val3=(val3./val4);
+%   val4=sqrt(val1.^2 + val3.^2+val2.^2);
 
    
 %    myval=shiftdim(val1,1);
-   myval=shiftdim(val4,1);
+%   myval=shiftdim(val4,1);
 
 
 
@@ -193,9 +193,9 @@ clear tmp;
 %    evel1Mm_vhy(i,:)=myval(62,31,:);  %vertical section at 1Mm  31
 %    evelp5Mm_vhy(i,:)=myval(62,15,:);  %vertical section at 0.5Mm 15   
     
-     evel2Mm(:,:,i)=myval(:,:,20);  %vertical section at 2Mm  62
-    evel1Mm(:,:,i)=myval(:,:,42);  %vertical section at 1Mm  31
-    evelp5Mm(:,:,i)=myval(:,:,90);  %vertical section at 0.5Mm 15   
+     evelv2Mm(:,:,i)=myval(:,:,20);  %vertical section at 2Mm  62
+     evelv1Mm(:,:,i)=myval(:,:,42);  %vertical section at 1Mm  31
+     evelvp5Mm(:,:,i)=myval(:,:,90);  %vertical section at 0.5Mm 15   
    
     
 
@@ -254,7 +254,7 @@ clear tmp;
   
   
  if mod(i,25)==0         
-    save(wspacename,'evel2Mm','evel1Mm','evelp5Mm'); 
+    save(wspacename,'evelv2Mm','evelv1Mm','evelvp5Mm'); 
 end 
   
 %   cmap=colormap(jet(256));
@@ -290,7 +290,7 @@ end
  
 end
 
-save(wspacename,'evel2Mm','evel1Mm','evelp5Mm'); 
+save(wspacename,'evelv2Mm','evelv1Mm','evelvp5Mm'); 
 %save(wspacename);
 
 exit;

@@ -1,4 +1,3 @@
-
 %directory='/fastdata/cs1mkg/smaug/spic6b0_3d/';
 %directory='/storage2/mikeg/results/spic5b0_b1G_3d/';
 %directory='/storage2/mikeg/results/spic4b0_3_3d/';
@@ -15,7 +14,7 @@
 % directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
-directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni3/';
+directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
 extension='.out';
 
 %ndirectory='/storage2/mikeg/results/spic5b0_b1G_3d/images_3d_vsecs/';
@@ -31,7 +30,7 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_rhosecs_vquiv_19/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
-ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni3/images_rhosecs_vquiv/';
+ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/images_rhosecs_vquiv/';
 
 nextension='.jpg';
 %figure;
@@ -39,9 +38,9 @@ nt=1999;
 nt=54;
 lev=3;
 nt=966;
-nt=130;
-%for i=1:1:nt
-for i=562:1:650
+nt=629;
+for i=1:1:nt
+%for i=562:1:650
 %for i=1519:2632
 %for i=2631:2632
     
@@ -363,7 +362,7 @@ quiver3(x2,x1,x3,1.*uw,1.*uv,1.*uu,'Color',[0 0.498 0], 'LineWidth',1.5)
   maxval=1e-6;
 
 
-maxval=1.0;
+maxval=5.0;
 minval=0.0;
 
 %   if maxval>500
