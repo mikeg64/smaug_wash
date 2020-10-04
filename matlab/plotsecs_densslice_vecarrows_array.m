@@ -10,11 +10,11 @@
 %directory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/';
 %directory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/';
 % directory='/fastdata/cs1mkg/smaug/washing_mach/';
-%directory='/shared/sp2rc2/Shared/simulations/washing_mach/';
+directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/';
 % directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
-directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
+%directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
 extension='.out';
 
 %ndirectory='/storage2/mikeg/results/spic5b0_b1G_3d/images_3d_vsecs/';
@@ -30,9 +30,8 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washing_mach/images_3d_vsecs_mag/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_rhosecs_vquiv_19/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov5_kg/images_rhosecs_vquiv_3/';
-ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/images_rhosecs_vquiv/';
-
-nextension='.jpg';
+%ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/images_rhosecs_vquiv/';
+ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/images_rhosecs_vquiv/';nextension='.jpg';
 %figure;
 nt=1999;
 nt=54;

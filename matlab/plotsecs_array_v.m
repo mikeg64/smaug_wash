@@ -13,7 +13,7 @@
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov1_kg/';
 %directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mov3_kg_uni/';
 %directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/';
-directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/';
+directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/';
 %directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
@@ -37,7 +37,7 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_vzslices/';
 
 %ndirectory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/images_3d_vsecs/';
-ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/images_3d_vsecs/';
+ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/images_3d_vsecs_v/';
 
 nextension='.jpg';
 figure;
@@ -129,18 +129,24 @@ clear tmp;
    ay=y(nrange);
    az=z(nrange);
    [x1,x2,x3] = meshgrid(ax,ay,az);
-     %val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);%z component
-    val1=reshape(wd(3,nrange,nrange,nrange),124,124,124);
-    val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
+     val1=reshape(wd(2,nrange,nrange,nrange),124,124,124);%z component
+    %val1=reshape(wd(3,nrange,nrange,nrange),124,124,124);
+    %val3=reshape(wd(4,nrange,nrange,nrange),124,124,124);
      val2=reshape(wd(1,nrange,nrange,nrange)+wd(10,nrange,nrange,nrange),124,124,124);
 % 
 % 
     val1=(val1./val2);
-    val3=(val3./val2);
+%    val3=(val3./val2);
 % 
-  val4=sqrt(val1.^2 + val3.^2);
+%  val4=sqrt(val1.^2 + val3.^2);
 % 
-%    
+% 
+
+%val4=sqrt(val1.^2 + val2.^2 + val3.^2);
+    val4=sqrt(val1.^2);
+
+
+   
 %     myval=shiftdim(val1,1);
    myval=shiftdim(val4,1);
 %    myval=shiftdim(val1,1);
@@ -157,9 +163,17 @@ clear tmp;
 %     val3=reshape(wd(13,nrange,nrange,nrange),124,124,124);
 
 %val4=sqrt(val1.^2 + val2.^2 + val3.^2);
-
+%val4=sqrt(val1.^2);
    
  %   myval=shiftdim(val4,1);
+
+
+%      val3=reshape(wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange),124,124,124); 
+%      val2=reshape(wd(7,nrange,nrange,nrange)+wd(12,nrange,nrange,nrange),124,124,124); 
+%      val1=reshape(wd(8,nrange,nrange,nrange)+wd(13,nrange,nrange,nrange),124,124,124);
+%val4=sqrt(val1.^2 + val2.^2 + val3.^2);
+%mytvalb=shiftdim(val4,1);
+
 
   %mc=reshape(val4(120,:,:),124,124);
 
@@ -206,7 +220,12 @@ clear tmp;
   h=slice(myval(:,:,1:26),62, 62,[1 20]);  %used for 0,0 mode
   %h=slice(myval,65, 65,[5 49 100]);
   %h=slice(myval,105, 96,8);
-sect=myval( :,:,5);
+%sectb1=mytvalb( :,:,1);
+%sectb2=mytvalb(:,:,20);
+ %surf(mysval,'LineStyle','none');
+ %contourf(sectb1,6);
+%contourf(sectb2,6);
+
 %h=surf(sect','LineStyle','none');
 % view(0,90);
  view(-37.5,15);
@@ -223,7 +242,7 @@ sect=myval( :,:,5);
   
   
   
-%    % hcs=contourslice(mytval,[],[],[35 49 80]);
+%hcs=contourslice(mytvalb(:,:,1:26),[],[],[1 20]);
 %   hcs=contourslice(mytval,[],[],[49 80]);
 %   colors = get(hcs,'cdata');
 % colors=unique(cat(1,colors{:}));
@@ -270,6 +289,13 @@ sect=myval( :,:,5);
   %set(gca,'YTickLabel',{'0';'1.6';'3.2'})
   %set(gca,'XTickLabel',{'0';'0.63';'1.26';'1.89';'2.52';'3.15';'3.78'})
   %set(gca,'ZTickLabel',{'0.09';'0.99';'1.94';'2.88';'3.83';'4.77';'5.72'})
+
+ set(gca,'YTickLabel',{'0';'0.67';'1.33';'2.0'})
+ set(gca,'XTickLabel',{'0';'0.67';'1.33';'2.0'})
+  %set(gca,'XTickLabel',{'0';'0.63';'1.26';'1.89';'2.52';'3.15';'3.78'})
+  set(gca,'ZTickLabel',{'0.2';'0.53';'0.86';'1.19';'1.52';'1.87';'2.19'})
+
+
   %cmap=colormap('Jet');
   
   
@@ -283,7 +309,7 @@ sect=myval( :,:,5);
       min2=min(min1);
       min3=min(min2);
 
-      mval=2;
+      mval=40;
       %mval=0.2;
       maxval=mval;
       minval=-mval;
@@ -340,16 +366,21 @@ minval=0;
  
   %set(hc,'Ylim',[-0.6 0.6]);
   %set(hc,'Ylim',[4*10^5 3*10^6]);
-   text(-100,0,175,timetext);
+  % text(-100,0,175,timetext);
+
+text(-100,0,15,timetext);
+
 %   %title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (0,0) Mode Driver of Period673.4s, Applied at a Height of 100km');
 %   title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (3,3) Mode Driver of Period 100.0s, Applied at a Height of 100km');
-%   xlabel('x-distance (Mm)');
-%   ylabel('y-distance (Mm)');
-%   zlabel('Height (Mm)');
+   xlabel('x-distance (Mm)');
+   ylabel('y-distance (Mm)');
+   zlabel('Height (Mm)');
 %   
 %   ylabel(hc,'Vz [m/s]');
-  
-  
+  text(60,0,38,'Vertical Velocity [m/s]');  
+%  lgd = legend;
+%lgd.FontSize = 14;
+%lgd.Title.String = 'Vertical Velocity [m/s]'; 
   
   print('-djpeg', imfile);
   

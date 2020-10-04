@@ -7,11 +7,12 @@
 %directory='/storage2/mikeg/results/spic4p3a_0_1_3d/';
 %directory='/storage2/mikeg/results/spic6p7a_0_0_3d/';
 %directory='/storage2/mikeg/results/spic2p3a_0_3_3d/';
-directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
+%directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni4/';
+directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/';
 extension='.out';
-bdir='/fastdata-sharc/cs1mkg/smaug_wash/';
+bdir='/shared/sp2rc2/Shared/simulations/washmc/';
 rdirectory='washmc_2p5_2p5_12p5_mach180_uni4';
-nt=630;
+nt=635;
 
 
 %directory='/fastdata/cs1mkg/smaug/spic5b0_2_3d_rep/';
@@ -30,8 +31,8 @@ extension='.out';
 ndirectory=[bdir,rdirectory,'images_3d_vsecs/'];
 nextension='.jpg';
 %wspacename='1p53a0_3_3dmatlab_perturb.mat';
-wspacename=[directory,'vmagverustime.mat']
-
+%wspacename=[directory,'vmagverustime.mat']
+wspacename=[directory,'hmagverustime.mat']
 
 %evelchrom_vh=zeros(nt,124);  %  horizontal section in chrom at  20
 %eveltran_vh=zeros(nt,124);   %  horizontal section in transition layer at 42
@@ -49,6 +50,10 @@ wspacename=[directory,'vmagverustime.mat']
 evel2Mm_v=zeros(124,124,nt);  %vertical section at 2Mm  62
 evel1Mm_v=zeros(124,124,nt);  %vertical section at 1Mm  31
 evelp5Mm_v=zeros(124,124,nt);  %vertical section at 0.5Mm 15
+
+%evelchrom_vh=zeros(124,124,nt);  %  horizontal section in chrom at  20
+%eveltran_vh=zeros(124,124,nt);   %  horizontal section in transition layer at 42
+%evelcor_vh=zeros(124,124,nt);    %  horizontal section in corona at 90
 
 for i=1:1:nt
 %for i=1:100:nt
@@ -193,10 +198,15 @@ clear tmp;
 %    evel1Mm_vhy(i,:)=myval(62,31,:);  %vertical section at 1Mm  31
 %    evelp5Mm_vhy(i,:)=myval(62,15,:);  %vertical section at 0.5Mm 15   
     
-     evel2Mm(:,:,i)=myval(:,:,20);  %vertical section at 2Mm  62
-    evel1Mm(:,:,i)=myval(:,:,42);  %vertical section at 1Mm  31
-    evelp5Mm(:,:,i)=myval(:,:,90);  %vertical section at 0.5Mm 15   
+     evel2Mm(:,:,i)=myval(62,:,:);  %vertical section at 2Mm  62
+    evel1Mm(:,:,i)=myval(31,:,:);  %vertical section at 1Mm  31
+    evelp5Mm(:,:,i)=myval(15,:,:);  %vertical section at 0.5Mm 15
+
    
+%    evelchrom_vh(:,:,i)=myval( :,:,20);  %  horizontal section in chrom at  20
+%    eveltran_vh(:,:,i)=myval( :,:,42);   %  horizontal section in transition layer at 42
+%    evelcor_vh(:,:,i)=myval( :,:,90);    %  horizontal section in corona at 90
+
     
 
 %sabx=reshape(wd(11,nrange,nrange,nrange),124,124,124);
@@ -254,7 +264,8 @@ clear tmp;
   
   
  if mod(i,25)==0         
-    save(wspacename,'evel2Mm','evel1Mm','evelp5Mm'); 
+    save(wspacename,'evel2Mm','evel1Mm','evelp5Mm');
+     %save(wspacename,'evelchrom_vh','eveltran_vh','evelcor_vh'); 
 end 
   
 %   cmap=colormap(jet(256));
@@ -290,7 +301,8 @@ end
  
 end
 
-save(wspacename,'evel2Mm','evel1Mm','evelp5Mm'); 
+save(wspacename,'evel2Mm','evel1Mm','evelp5Mm');
+%save(wspacename,'evelchrom_vh','eveltran_vh','evelcor_vh');  
 %save(wspacename);
 
 exit;

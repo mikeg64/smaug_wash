@@ -13,7 +13,7 @@
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov1_kg/';
 %directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mov3_kg_uni/';
 %directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/';
-directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/';
+directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/';
 %directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
@@ -37,7 +37,7 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_vzslices/';
 
 %ndirectory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/images_3d_vsecs/';
-ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/images_3d_vsecs/';
+ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni4/images_3d_vsecs_h/';
 
 nextension='.jpg';
 figure;
@@ -272,7 +272,10 @@ sect=myval( :,:,5);
   %set(gca,'ZTickLabel',{'0.09';'0.99';'1.94';'2.88';'3.83';'4.77';'5.72'})
   %cmap=colormap('Jet');
   
-  
+set(gca,'YTickLabel',{'0';'0.67';'1.33';'2.0'})
+ set(gca,'XTickLabel',{'0';'0.67';'1.33';'2.0'})
+  %set(gca,'XTickLabel',{'0';'0.63';'1.26';'1.89';'2.52';'3.15';'3.78'})
+  set(gca,'ZTickLabel',{'0.2';'0.53';'0.86';'1.19';'1.52';'1.87';'2.19'})
   
   
        max1=max(myval);
@@ -283,7 +286,7 @@ sect=myval( :,:,5);
       min2=min(min1);
       min3=min(min2);
 
-      mval=2;
+      mval=10;
       %mval=0.2;
       maxval=mval;
       minval=-mval;
@@ -340,16 +343,20 @@ minval=0;
  
   %set(hc,'Ylim',[-0.6 0.6]);
   %set(hc,'Ylim',[4*10^5 3*10^6]);
-   text(-100,0,175,timetext);
+   text(-100,0,15,timetext);
 %   %title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (0,0) Mode Driver of Period673.4s, Applied at a Height of 100km');
 %   title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (3,3) Mode Driver of Period 100.0s, Applied at a Height of 100km');
-%   xlabel('x-distance (Mm)');
-%   ylabel('y-distance (Mm)');
-%   zlabel('Height (Mm)');
+%title('Vertical Velocity [m/s]');
+
+   xlabel('x-distance (Mm)');
+   ylabel('y-distance (Mm)');
+   zlabel('Height (Mm)');
 %   
 %   ylabel(hc,'Vz [m/s]');
-  
-  
+   text(60,0,38,'Radial Velocity [m/s]');  
+% lgd = legend;
+%lgd.FontSize = 14;
+%lgd.Title.String = 'Radial Velocity [m/s]'; 
   
   print('-djpeg', imfile);
   

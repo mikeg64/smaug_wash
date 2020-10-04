@@ -4,17 +4,19 @@
 %for i=9:1:9
 itstep=0;
  %for i=0:10:581   
-  for i=200:1:200     
-    directory='/fastdata/cs1mkg/smaug/spic2p82a_0_0_b20gv/';
+  for i=1:10:2068     
+    directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
 extension='.out';
 
-ndirectory='/fastdata/cs1mkg/smaug/spic2p82a_0_0_b20gv/imagesisostream/';
+ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/imagesisostream/';
 nextension='.jpg';
 %for i=200:200
 %for i=0:5:30    
 
-id=int2str(1000*i);
-filename=[directory,'zerospic1__',id,extension];
+% id=int2str(1000*i);
+id=int2str(500*i);
+%filename=[directory,'zerospic1__',id,extension];
+filename=[directory,'washmc__',id,extension];
 imfile=[ndirectory,'im1_',id,nextension];
 disp([id filename]);
    fid=fopen(trim(filename));
@@ -239,31 +241,37 @@ beta=0.5*mu*1.0d8*reshape((wd(6,nrange,nrange,nrange)+wd(11,nrange,nrange,nrange
   %h= slice(myval,64, 64, 4);
   %h=figure();
   %hold on;
-   maxv=max(max(max(beta)));
-minv=min(min(min(beta)));
+%    maxv=max(max(max(beta)));
+% minv=min(min(min(beta)));
+
+   maxv=max(max(max(umag)));
+minv=min(min(min(umag)));
+
+
   %isovalue=0.1909;
   isovalue=minv+(maxv-minv)/2;
-  
+  isovalue=2.0e-5;
   itstep=itstep+1;
   maxva(itstep)=maxv;
   minva(itstep)=minv;
   ava(itstep)=minv+(maxv-minv)/2;
     % isovalue=0.1746;
-     fv = patch(isosurface(x1,x2,x3,beta,isovalue));
-      isonormals(x1,x2,x3,beta,fv)
-     set(fv,'FaceColor','red','EdgeColor','none'); 
-      daspect([1,1,1])
-view(3); 
-axis tight;
-camlight; 
-lighting gouraud ;
-       
-       hold on;
+     %fv = patch(isosurface(x1,x2,x3,beta,isovalue));
+% %      fv = patch(isosurface(x1,x2,x3,umag,isovalue));
+% %       isonormals(x1,x2,x3,beta,fv)
+% %      set(fv,'FaceColor','red','EdgeColor','none'); 
+% %       daspect([1,1,1])
+% % view(3); 
+% % axis tight;
+% % camlight; 
+% % lighting gouraud ;
+% %        
+% %        hold on;
        
        streamslice(x1,x2,x3,uu,uv,uw,0.5*(zmax-zmin),[],[],0.5);  
-       
+       hold on;
      %h=slice(myval,65, 65,[5 49 100]); 
-     h=slice(myval,[], [],[5 49 100]); 
+     h=slice(myval,[], [64],[5 49]); 
        
        
        
@@ -278,7 +286,8 @@ lighting gouraud ;
       
       
      % set(gca,'CameraPosition',[911.383 -585.056 176.313]);
-      set(gca,'CameraPosition',[491.298 -661.02 631.537]);
+%       set(gca,'CameraPosition',[491.298 -661.02 631.537]);
+       view(-37.5,15);
       set(gca,'Xlim',[0 124],'Ylim',[0 124],'Zlim',[0 124]);
 
       set(gca,'XTickLabel',{'0';'1.6';'3.2'})
@@ -338,7 +347,7 @@ lighting gouraud ;
   
   hold off
    
-%    clf;
+    clf;
 %    close(gcf);
 %   clear all;
   
