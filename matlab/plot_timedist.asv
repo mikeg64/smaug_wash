@@ -6,23 +6,19 @@
 %pvvt300_00.m
 %these generated from 
 
-name={'hhzverustime.mat','hmagverustime.mat','vvzverustime.mat','vmagverustime.mat'};
-model={'uni1','uni2','uni3','uni4'};
+name=[];
+model=['uni1','uni2','uni3','uni4'];
 %ndirectory='/fastdata/cs1mkg/smaug/spic6b0_3d_rep/images';
 %ndirectory='/fastdata/cs1mkg/smaug/spic5b0_3d/images';
-ndirectory='../../washmc-data/';
-
-file=[ndirectory,model{1},'/',name{3} ];
-%imfile=[ndirectory,'dt_',id,nextension];
-
-
+ndirectory='../washmc-data/';
 %load('/fastdata/cs1mkg/smaug/matlabdat/spic6b0_3d_rep_vverustime.mat');
 %load('/fastdata/cs1mkg/smaug/matlabdat/spic5b0_3d_vverustime.mat');
-%load('../washmc-data/uni1/hhzverustime.mat');
-load(file);
+load('../washmc-data/uni1/hhzverustime.mat');
+file=[ndirectory,name[1]];
+imfile=[ndirectory,'dt_',id,nextension];
 
 %dtplot=evelchrom_vh;  %  horizontal section in chrom at  20
-dtplot=evelv1Mm;   %  horizontal section in transition layer at 42
+dtplot=eveltran_vh;   %  horizontal section in transition layer at 42
 %dtplot=evelcor_vh;    %  horizontal section in corona at 90
 
 %dtplot=evel2Mm_vh;  %vertical section at 2Mm  62
