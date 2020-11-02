@@ -61,7 +61,7 @@ int addsourceterms2_MODID(real *dw, real *wd, real *w, struct params *p, struct 
    
 
 
-    aa=0.1;
+    aa=10.0;
     s_period=180.0;
     tdep=1.00;
     qt=p->qt;

@@ -66,7 +66,12 @@ close,1
 ;openr,1,'/fastdata/cs1mkg/smaug/spic1p79a_0_0_3d/zerospic1__434000.out'
 ;openr,1,'/fastdata/cs1mkg/smaug/spic5b0_3_3d/zerospic1__586000.out'
 ;openr,1,'/fastdata/cs1mkg/smaug/spic4p35a_0_0_3d/zerospic1__255000.out'
-openr,1,'/fastdata/cs1mkg/smaug/spic2p05a_0_2_3d/zerospic1__440000.out'
+;openr,1,'/fastdata/cs1mkg/smaug/washing_mach/washmc__582000.out'
+;openr,1,'/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/washmc__376000.out'
+openr,1,'/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni1/washmc__635000.out'
+;openr,1,'/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/washmc__435000.out'
+
+;openr,1,'../configs/3D_10_10_6_tube_bin.ini',/f77_unf;
 
 ;openr,1,'/fastdata/cs1mkg/smaug/spic4b0_2_3d/zerospic1__67000.out'
 ;openr,1,'/data/cs1mkg/smaug_spicule1/spicule2p3a_0_3_3d/zerospic1__592000.out'
@@ -180,8 +185,11 @@ close,1
 ;openw,1,'/fastdata/cs1mkg/smaug/spic4p35a_0_0_3d/zerospic1_asc_255000.ini'
 ;/fastdata/cs1mkg/smaug/spic1p79a_0_0_3d/zerospic1__408000.out
 ;openw,1,'/fastdata/cs1mkg/smaug/spic5b0_3_3d/zerospic1_asc_586000.ini'
-openw,1,'/fastdata/cs1mkg/smaug/spic2p05a_0_2_3d/zerospic1_asc_440000.ini'
-
+;;openw,1,'/fastdata/cs1mkg/smaug/washing_mach/washmc_asc_582000.ini'
+;openw,1,'../configs/3D_10_10_6_tube_asc.ini'
+;openw,1,'/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/washmc_asc_376000.ini
+openw,1,'/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni1/washmc_asc_635000.ini
+;openw,1,'/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/washmc_asc_435000.ini
 
 ;openw,1,'//data/cs1mkg/smaugtemp/smaug/out/sedov_asc_118000.ini'
 ;openr,1,'/data/cs1mkg/smaugtemp/smaug/out/sedov_118000.out'

@@ -52,9 +52,17 @@ evelv2Mm_v=zeros(124,124,nt);  %vertical section at 2Mm  62
 evelv1Mm_v=zeros(124,124,nt);  %vertical section at 1Mm  31
 evelvp5Mm_v=zeros(124,124,nt);  %vertical section at 0.5Mm 15
 
-%evelchrom_vh=zeros(124,124,nt);  %  horizontal section in chrom at  20
-%eveltran_vh=zeros(124,124,nt);   %  horizontal section in transition layer at 42
-%evelcor_vh=zeros(124,124,nt);    %  horizontal section in corona at 90
+evelchrom_vh=zeros(124,124,nt);  %  horizontal section in chrom at  20
+eveltran_vh=zeros(124,124,nt);   %  horizontal section in transition layer at 42
+evelcor_vh=zeros(124,124,nt);    %  horizontal section in corona at 90
+
+evelv2Mm_bz=zeros(124,124,nt);  %vertical section at 2Mm  62
+evelv1Mm_bz=zeros(124,124,nt);  %vertical section at 1Mm  31
+evelvp5Mm_bz=zeros(124,124,nt);  %vertical section at 0.5Mm 15
+
+evelchrom_bz=zeros(124,124,nt);  %  horizontal section in chrom at  20
+eveltran_bz=zeros(124,124,nt);   %  horizontal section in transition layer at 42
+evelcor_bz=zeros(124,124,nt);    %  horizontal section in corona at 90
 
 for i=1:1:nt
 %for i=1:100:nt
@@ -153,7 +161,7 @@ clear tmp;
    myval=shiftdim(val1./val2,1);
 
 
-%    val1=reshape(wd(6,nrange,nrange,nrange),124,124,124);
+    val1=reshape(wd(6,nrange,nrange,nrange),124,124,124);
 %     val2=reshape(wd(7,nrange,nrange,nrange),124,124,124);
 %     val3=reshape(wd(8,nrange,nrange,nrange),124,124,124);
 
@@ -167,7 +175,7 @@ clear tmp;
 %   val4=sqrt(val1.^2 + val3.^2+val2.^2);
 
    
-%    myval=shiftdim(val1,1);
+    myvalb=shiftdim(val1,1);
 %   myval=shiftdim(val4,1);
 
 
@@ -199,14 +207,23 @@ clear tmp;
 %    evel1Mm_vhy(i,:)=myval(62,31,:);  %vertical section at 1Mm  31
 %    evelp5Mm_vhy(i,:)=myval(62,15,:);  %vertical section at 0.5Mm 15   
     
-     evelv2Mm(:,:,i)=myval(62,:,:);  %vertical section at 2Mm  62
-     evelv1Mm(:,:,i)=myval(31,:,:);  %vertical section at 1Mm  31
-     evelvp5Mm(:,:,i)=myval(15,:,:);  %vertical section at 0.5Mm 15   
+     evelv2Mm_v(:,:,i)=myval(62,:,:);  %vertical section at 2Mm  62
+     evelv1Mm_v(:,:,i)=myval(31,:,:);  %vertical section at 1Mm  31
+     evelvp5Mm_v(:,:,i)=myval(15,:,:);  %vertical section at 0.5Mm 15   
    
-%    evelchrom_vh(:,:,i)=myval( :,:,20);  %  horizontal section in chrom at  20
-%    eveltran_vh(:,:,i)=myval( :,:,42);   %  horizontal section in transition layer at 42
-%    evelcor_vh(:,:,i)=myval( :,:,90);    %  horizontal section in corona at 90
-    
+    evelchrom_vh(:,:,i)=myval( :,:,20);  %  horizontal section in chrom at  20
+    eveltran_vh(:,:,i)=myval( :,:,42);   %  horizontal section in transition layer at 42
+    evelcor_vh(:,:,i)=myval( :,:,90);    %  horizontal section in corona at 90
+ 
+
+     evelv2Mm_bz(:,:,i)=myvalb(62,:,:);  %vertical section at 2Mm  62
+     evelv1Mm_bz(:,:,i)=myvalb(31,:,:);  %vertical section at 1Mm  31
+     evelvp5Mm_bz(:,:,i)=myvalb(15,:,:);  %vertical section at 0.5Mm 15   
+   
+    evelchrom_bz(:,:,i)=myvalb( :,:,20);  %  horizontal section in chrom at  20
+    eveltran_bz(:,:,i)=myvalb( :,:,42);   %  horizontal section in transition layer at 42
+    evelcor_bz(:,:,i)=myvalb( :,:,90);    %  horizontal section in corona at 90
+  
 
 %sabx=reshape(wd(11,nrange,nrange,nrange),124,124,124);
 %saby=reshape(wd(12,nrange,nrange,nrange),124,124,124);
@@ -263,7 +280,7 @@ clear tmp;
   
   
  if mod(i,25)==0         
-    save(wspacename,'evelv2Mm','evelv1Mm','evelvp5Mm'); 
+    save(wspacename,'evelv2Mm_v','evelv1Mm_v','evelvp5Mm_v','evelchrom_vh','eveltran_vh','evelcor_vh','evelv2Mm_bz','evelv1Mm_bz','evelvp5Mm_bz','evelchrom_bz','eveltran_bz','evelcor_bz'); 
     %save(wspacename,'evelchrom_vh','eveltran_vh','evelcor_vh'); 
 end 
   
@@ -300,7 +317,9 @@ end
  
 end
 
-save(wspacename,'evelv2Mm','evelv1Mm','evelvp5Mm'); 
+save(wspacename,'evelv2Mm_v','evelv1Mm_v','evelvp5Mm_v','evelchrom_vh','eveltran_vh','evelcor_vh','evelv2Mm_bz','evelv1Mm_bz','evelvp5Mm_bz','evelchrom_bz','eveltran_bz','evelcor_bz');
+ 
+%save(wspacename,'evelv2Mm','evelv1Mm','evelvp5Mm'); 
 %save(wspacename);
 %save(wspacename,'evelchrom_vh','eveltran_vh','evelcor_vh'); 
 
