@@ -42,7 +42,7 @@ matfile=[directory,'hhzverustime.mat'];
 
 
 %S=evelv1Mm;  %vertical section at 0.5Mm 15
-evelv=evelv2Mm_v;
+evelv=evelv2Mm_vh;
 S=evelv(:,:,1:1270);
 %proper orthogonal decomposition
 % https://depositonce.tu-berlin.de/bitstream/11303/9456/5/podnotes_aiaa2019.pdf
