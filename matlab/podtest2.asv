@@ -1,5 +1,5 @@
-evelv=evelv2Mm_v;
-evelb=evelv2Mm_bz;
+evelv=evelv1Mm_v;
+evelb=evelvp5Mm_bz;
 figure 
 %subplot(1,3,1)
 ss1=reshape(evelv(62,:,1:650),[124,650]);

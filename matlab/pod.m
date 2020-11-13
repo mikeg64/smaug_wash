@@ -17,7 +17,7 @@ extension='.out';
 %rdirectory='spic_5b2_2_bv100G';
 
 bdir='/Users/mikegriffiths/proj';
-rdirectory='/washmc-data/uni1';
+rdirectory='/washmc-data/uni4';
 
 %directory=[bdir,rdirectory,'/matlabdat/'];
 directory=[bdir,rdirectory,'/'];
@@ -40,10 +40,11 @@ matfile=[directory,'hhzverustime.mat'];
 %dtplot=evel1Mm_vh;  %vertical section at 1Mm  31
 %dtplot=evelp5Mm;  %vertical section at 0.5Mm 15
 
-
+%nt=1270;
+nt=635;
 %S=evelv1Mm;  %vertical section at 0.5Mm 15
-evelv=evelv2Mm_v;
-S=evelv(:,:,1:1270);
+evelv=evelchrom_vh;
+S=evelv(:,:,1:nt);
 %proper orthogonal decomposition
 % https://depositonce.tu-berlin.de/bitstream/11303/9456/5/podnotes_aiaa2019.pdf
 
