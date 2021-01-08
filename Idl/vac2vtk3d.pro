@@ -1,4 +1,4 @@
-pro vac2vtk3d,pict,vacdata,x,field,vecsize,filename
+pro vac2vtk3d,pict,vacdata,x,field,vecsize,filename,directory
 ; pict    :: the pict reference
 ; vacdata :: the full array of vacdata from getpict 
 ; x :: the position data     
@@ -17,12 +17,12 @@ pro vac2vtk3d,pict,vacdata,x,field,vecsize,filename
      i=pict
 
      if i le 9 then begin
-        filen='vtk/'+filename+'00'+strtrim(string(i),2)+'.vtk'
+        filen=directory+'vtk/'+filename+'00'+strtrim(string(i),2)+'.vtk'
      endif else begin
         if i le 99 then begin
-           filen='vtk/'+filename+'0'+strtrim(string(i),2)+'.vtk'
+           filen=directory+'vtk/'+filename+'0'+strtrim(string(i),2)+'.vtk'
         endif else begin
-           filen='vtk/'+filename+strtrim(string(i),2)+'.vtk'
+           filen=directory+'vtk/'+filename+strtrim(string(i),2)+'.vtk'
         endelse
      endelse
 
