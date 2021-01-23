@@ -10,10 +10,10 @@
 %directory='/fastdata/cs1mkg/smaug/spic5b0_3d_rep/';
 %directory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/';
 %directory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/';
-%directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov1_kg/';
+directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/';
 %directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mov3_kg_uni/';
 %directory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/';
-directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/';
+%directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni5/';
 %directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
@@ -29,7 +29,7 @@ extension='.out';
 %ndirectory='/storage2/mikeg/results/spic2p3a_0_3_3d/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/spic1p00a_0_3_3d/images_3d_vsecs/';
 %ndirectory='/home/mikeg/fuse/icefast/smaug/spic4p71a_1_1_3d/images_3d_vsecs/';
-%ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov1_kg/images_3d_vsecs/';
+ndirectory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/images_3d_vsecs/';
 %ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mov3_kg_uni/images_3d_vsecs/';
 %ndirectory='/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni2/images_3d_vsecs/';
 %ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_bsecs/';
@@ -37,12 +37,12 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_vzslices/';
 
 %ndirectory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/images_3d_vsecs/';
-ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/images_3d_vsecs/';
+%ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/images_3d_vsecs/';
 
 nextension='.jpg';
-figure;
- %for i=1:50:2069
-  for i=0:1:304   
+%figure;
+ for i=1:1:1270
+%  for i=88:1:1270  
 %for i=1519:2632
 %for i=2631:2632
     
@@ -192,8 +192,63 @@ clear tmp;
    %myval = permute(myval, P);
    
 
+
+       max1=max(myval);
+      max2=max(max1);
+      max3=max(max2);
+
+      min1=min(myval);
+      min2=min(min1);
+      min3=min(min2);
+
+      mval=400;
+      %mval=0.2;
+      maxval=mval;
+      minval=-mval;
+      %minval=-3e-5;
+      %maxval=3e-5;
+minval=0;
+%minval=-10;
+       if min3<minval
+           minval=min3;
+       end
+% 
+%       if max3>maxval
+%           maxval=max3;
+%       end
+
+%        if min3 < -2000
+%              minval=-2000;
+%        end
+%  
+%        if max3 >1500
+%            maxval=1500;
+%        end
+
+       if min3 < 0
+             minval=-min3;
+       end
+ 
+       if max3 >1
+          % maxval=2;
+       end
+
+
+
+
+ 
+ 
+%     minval=-400;
+%     maxval=400;
+
+
+
+
+
+
+
   %h= slice(myval,64, 64, 4);
-  figure('Visible','off','IntegerHandle','Off');
+  f=figure('Visible','off','IntegerHandle','Off');
   hold on;
   %h=slice(myval,80, 64,8);
   %h=slice(myval,96, 96,[5 49 100]);  %used for 0,1 mode
@@ -203,7 +258,12 @@ clear tmp;
   %h=slice(myval,108, 96,[5 49 100]);  %used for 0,1 mode
   %h=slice(myval,62, 62,[10 49 100]);  %used for 0,0 mode
   %h=slice(myval,62, 62,[49 75 100]);  %used for 0,0 mode
-  h=slice(myval(:,:,1:26),62, 62,[1 20]);  %used for 0,0 mode
+  %h=slice(myval(:,:,1:26),62, 62,[1 20]);  %used for 0,0 mode
+  h=slice(myval(:,:,1:52),62, 62,[1 20]);  %used for 0,0 mode
+
+
+
+
   %h=slice(myval,65, 65,[5 49 100]);
   %h=slice(myval,105, 96,8);
 sect=myval( :,:,5);
@@ -219,7 +279,7 @@ sect=myval( :,:,5);
 
 
 %   hold on;
-    set(h,'EdgeColor','none','FaceColor','interp');
+  set(h,'EdgeColor','none','FaceColor','interp');
   
   
   
@@ -262,92 +322,63 @@ sect=myval( :,:,5);
   %set(gca,'CameraPosition',[-606.298 -914.02 280.537]);
   %set(gca,'Xlim',[0 124],'Ylim',[0 124],'Zlim',[0 124]);
   
+  set(gca,'XTickLabel',{'0';'1.6';'3.1'; '4.7'});
+  set(gca,'YTickLabel',{'0';'1.6';'3.1'; '4.7'});
+
+  %set(gca,'YTickLabel',{'0';'1.6';'3.2'})
   %set(gca,'XTickLabel',{'0';'1.6';'3.2'})
   %set(gca,'YTickLabel',{'0';'1.6';'3.2'})
-
 
 
   %set(gca,'YTickLabel',{'0';'1.6';'3.2'})
   %set(gca,'XTickLabel',{'0';'0.63';'1.26';'1.89';'2.52';'3.15';'3.78'})
   %set(gca,'ZTickLabel',{'0.09';'0.99';'1.94';'2.88';'3.83';'4.77';'5.72'})
-  %cmap=colormap('Jet');
-  
-  
-  
-  
-       max1=max(myval);
-      max2=max(max1);
-      max3=max(max2);
 
-      min1=min(myval);
-      min2=min(min1);
-      min3=min(min2);
-
-      mval=2;
-      %mval=0.2;
-      maxval=mval;
-      minval=-mval;
-      %minval=-3e-5;
-      %maxval=3e-5;
-minval=0;
-%minval=-10;
-       if min3<minval
-           minval=min3;
-       end
-% 
-%       if max3>maxval
-%           maxval=max3;
-%       end
-
-%        if min3 < -2000
-%              minval=-2000;
-%        end
-%  
-%        if max3 >1500
-%            maxval=1500;
-%        end
-
-       if min3 < 0
-             minval=-min3;
-       end
- 
-       if max3 >1
-          % maxval=2;
-       end
+  %set(gca,'ZTickLabel',{'0.0';'0.23';'0.47';'0.70';'0.94';'1.2';'1.4'}). %26 units along z axis
+  set(gca,'ZTickLabel',{'0.0';'0.47';'0.94';'1.41';'1.9';'2.34';'2.8'}) %26 units along z axis  
 
 
-
-
- 
- 
-%     minval=-400;
-%     maxval=400;
-  cmap=colormap(jet(256));
-  caxis([minval maxval]);
-  %caxis([-0.6 0.6]);
-  %caxis([4*10^5 3*10^6]);
-  divmap=diverging_map(linspace(0,1,256),[0.23 0.299 0.754],[0.706 0.016 0.15]);
-  colormap(divmap);
-  %colormap(cmap);
-  
-  
- 
-  
-  
-  hc=colorbar();
-  
-    set(hc,'Ylim',[minval maxval]);
- 
-  %set(hc,'Ylim',[-0.6 0.6]);
-  %set(hc,'Ylim',[4*10^5 3*10^6]);
    text(-100,0,175,timetext);
 %   %title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (0,0) Mode Driver of Period673.4s, Applied at a Height of 100km');
 %   title('Vertical Velocity for Solar Atmosphere with a Sinusoidal (3,3) Mode Driver of Period 100.0s, Applied at a Height of 100km');
-%   xlabel('x-distance (Mm)');
-%   ylabel('y-distance (Mm)');
-%   zlabel('Height (Mm)');
+   xlabel('x-distance (Mm)');
+   ylabel('y-distance (Mm)');
+   zlabel('Height (Mm)');
 %   
-%   ylabel(hc,'Vz [m/s]');
+
+
+
+
+
+%cmap=colormap('Jet');
+  
+  
+% figure('Visible','off','IntegerHandle','Off'); 
+  
+
+%  cmap=colormap(jet(256));
+  caxis([minval maxval]);
+  %caxis([-0.6 0.6]);
+  %caxis([4*10^5 3*10^6]);
+ % divmap=diverging_map(linspace(0,1,256),[0.23 0.299 0.754],[0.706 0.016 0.15]);
+
+ 
+
+  %divmap=diverging_map(linspace(0,1,256),[0.23 0.299 0.754],[0.706 0.016 0.15]);
+  %colormap(divmap);
+  %colormap(cmap);
+  hc=colorbar();
+  %colorbar()
+
+
+ 
+    set(hc,'Ylim',[minval maxval]);
+   ylabel(hc,'Vz [m/s]');
+
+ 
+  %set(hc,'Ylim',[-0.6 0.6]);
+  %set(hc,'Ylim',[4*10^5 3*10^6]);
+
   
   
   
