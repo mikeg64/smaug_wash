@@ -68785,7 +68785,7 @@
         </Domain>
       </Property>
       <Property name="FileName" id="29616.FileName" number_of_elements="1">
-        <Element index="0" value="C:\Users\Mike\data\washmc-data\uni6\h5\washmc_1221000.h5"/>
+        <Element index="0" value="/Users/mikegriffiths/washmc-data/uni6/h5/washmc_1221000.h5"/>
         <Domain name="files" id="29616.FileName.files"/>
       </Property>
       <Property name="MaterialInfo" id="29616.MaterialInfo"/>

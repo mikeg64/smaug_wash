@@ -14,8 +14,8 @@ def createimage(i,renderView1):
     #ifname='/Volumes/Shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni1/images/washmc_310000.jpg'
     # fname='C:\\Users\\Mike\\data\\washmc-data\\uni1\\h5\\washmc_1000.h5'
     id=1000+i*20000
-    fnameroot='C:\\Users\\Mike\\data\\washmc-data\\uni6\\h5\\washmc_'
-    ifnameroot='C:\\Users\\Mike\\data\\washmc-data\\uni6\\images\\washmc_'
+    fnameroot='/Users/mikegriffiths/washmc-data/uni6/h5/washmc_'
+    ifnameroot='/Users/mikegriffiths/washmc-data/uni6/images/washmc_'
     fname=fnameroot+str(id)+'.h5'
     ifname=ifnameroot+str(id)+'.jpg'
 
@@ -658,7 +658,7 @@ for i in range(0,64):
     createimage(i, renderView1) 
     for j in range(0, 10):
         ResetSession()
-        servermanager.LoadState("C:\\Users\\Mike\\temp\\sample.pvsm")
+        servermanager.LoadState("/Users/mikegriffiths/washmc-data/uni6/sample.pvsm")
         renderView=SetActiveView(GetRenderView())
         Render()    
 
