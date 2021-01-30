@@ -15,7 +15,8 @@
 % directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/';
 %directory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/';
-directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
+%directory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/';
+directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni5/';
 %directory='/fastdata/cs1mkg/smaug/spicule2p05_0_2_3d/';
 extension='.out';
 
@@ -33,13 +34,14 @@ extension='.out';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_3d_vsecs_30/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_mov8_kg/images_3d_vsecs_6/';
 %ndirectory='/fastdata/cs1mkg/smaug/washmc_2p5_2p5_12p5_180_kg/images_3d_vsecs_6_stream/';
-ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_vsecs_6_stream/';
+%ndirectory='/fastdata/cs1mkg/smaug/mc_2p5_2p5_12p5_jetwash1_kg/images_3d_vsecs_6_stream/';
+ndirectory=['/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni5','/images_3d_vsecs_6_stream/'];
 
 nextension='.jpg';
 figure;
-nt=1034;
+nt=1269;
 lev=6;
-for i=30:1:nt
+for i=1:10:nt
 % for i=20:20
 %for i=2631:2632
     
@@ -327,7 +329,7 @@ msz=shiftdim(sz,1);
 %   maxval=10;
 %   minval=-10;
 
-    maxval=1e-9;
+    maxval=100;
     minval=0;
 
 
@@ -356,6 +358,10 @@ msz=shiftdim(sz,1);
 %    end
 
 %  minval=0;
+
+    maxval=200;
+    minval=-200;
+
   cmap=colormap(jet(256));
   caxis([minval maxval]);
   %caxis([-0.6 0.6]);

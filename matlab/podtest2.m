@@ -1,4 +1,6 @@
 
+%routine to locate peaks
+
 directory='/shared/sp2rc2/Shared/simulations/smaug_realpmode/fastdata/cs1mkg/smaug/spic_5b2_2_bv100G/';
 extension='.out';
 %bdir='/shared/sp2rc2/Shared/simulations/smaug_realpmode/fastdata/cs1mkg/smaug/';
@@ -42,6 +44,8 @@ hold on
 plot(locsvz,pksvz,'d')
 plot(locsbz,pksbz,'o')
 
+
+%least squares fit
 t=(48:1:nt)';
 tbl = table(log(abs(ss1f(48:nt)')),t);
 mdl = fitlm(tbl,'linear');

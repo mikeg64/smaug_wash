@@ -45,7 +45,7 @@ if strcmp(mode,'vertfieldtube')
     
     xf=zeros(nx1,nx2,nx3);
     
-Bmax=0.15  ; %mag field Tesla
+Bmax=0.0375  ; %mag field Tesla changed from 0.15 on 30/01/2021
 %Bmin=0.0006d0  ; %mag field Tesla
 Bmin=0.0002  ; %mag field Tesla
 

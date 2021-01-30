@@ -1,4 +1,4 @@
-newfilename='3D_128_2p5_2p5_12p5_p0375T_asc_udvmft.ini'; %udvmft=uniform density vertical magnetic fluxt tube
+newfilename='3D_128_2p5_2p5_12p5_p03T_asc_udvmft.ini'; %udvmft=uniform density vertical magnetic fluxt tube
 %extrapolating atmospheric model to greater than 6Mm
 %sets the correct minimum and maximum so that the ghost cells are also
 %included
