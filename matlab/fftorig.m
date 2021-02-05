@@ -21,8 +21,9 @@ load(matfile);
 
 
 %nt=635;
-%S=evelv1Mm;  %vertical section at 0.5Mm 15
+%S=evelv1Mm;  %vertical section at 0.5Mm 15 evelv2Mm_bz
 evelv=evelv2Mm_v;
+%evelv=evelv2Mm_bz;
 S=evelv(:,:,1:nt);
 
 %proper orthogonal decomposition
@@ -57,7 +58,7 @@ ylabel('|P1(f)|')
 fftsurf=zeros(636,124);
 
 for i=1:124
-    tsamp=reshape(S(i,i,:),nt,1);
+    tsamp=reshape(S(27,i,:),nt,1);  %x-component is the height
     Y = fft(tsamp);
     P2 = abs(Y/L);
     P1 = P2(1:L/2+1);
