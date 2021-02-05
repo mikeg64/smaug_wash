@@ -515,22 +515,20 @@ for i in range(0,1271):
     
 
 
+
     # Create a new 'Render View'
     renderView1 = CreateView('RenderView')
     renderView1.ViewSize = [1632, 1270]
     renderView1.AxesGrid = 'GridAxes3DActor'
-    renderView1.CenterOfRotation = [31.51106783747673, 64.0, 64.0]
+    renderView1.CenterOfRotation = [32.0, 64.0, 64.0]
     renderView1.StereoType = 'Crystal Eyes'
-    renderView1.CameraPosition = [57.70479146948316, 217.75252354016362, 204.2166958427241]
-    renderView1.CameraFocalPoint = [31.511067837477412, 64.00000000000057, 63.99999999999995]
-    renderView1.CameraViewUp = [0.9807340677925325, 0.010796897347395973, -0.1950490073770752]
+    renderView1.CameraPosition = [85.37615508747277, 48.0910114119654, -138.60656881674353]
+    renderView1.CameraFocalPoint = [20.191144261936756, 51.27394938533013, 60.33431732657975]
+    renderView1.CameraViewUp = [0.9502901940124107, 0.00043527115949859845, 0.31136531229870934]
     renderView1.CameraFocalDisk = 1.0
-    renderView1.CameraParallelScale = 96.16408223999768
+    renderView1.CameraParallelScale = 96.0
     renderView1.BackEnd = 'OSPRay raycaster'
     renderView1.OSPRayMaterialLibrary = materialLibrary1
-
-
-
     
     #SetActiveView(None)
     

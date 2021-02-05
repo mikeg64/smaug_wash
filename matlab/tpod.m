@@ -41,8 +41,8 @@ load(matfile);
 %dtplot=evel1Mm_vh;  %vertical section at 1Mm  31
 %dtplot=evelp5Mm;  %vertical section at 0.5Mm 15
 
-%nt=1270;
-nt=635;
+nt=1270;
+%nt=635;
 %S=evelv1Mm;  %vertical section at 0.5Mm 15
 evelv=evelchrom_vh;
 S=evelv(:,:,1:nt);

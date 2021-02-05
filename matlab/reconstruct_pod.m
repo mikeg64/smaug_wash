@@ -1,11 +1,11 @@
 
 %reconstruct pod sample compute fourier transform to determin spectra
 
-
+%first run the script tpod
 % Reconstruction on mode k
-k = 4; % for example
+k = 6; % for example
 
-md=115;
+md=45;
 Utilde_k_s = A_s(:,k)*PHI_s(:,k)';
 % Normalization to match direct and snapshot modes (optional)
 PHI = normc(PHI_s); % Spatial modes
@@ -41,7 +41,7 @@ title('Single-Sided Amplitude Spectrum of X(t)')
 xlabel('f (mHz)')
 ylabel('|P1(f)|')
 
-fftsurf=zeros(318,124);
+fftsurf=zeros(636,124);
 for i=1:124
     tsamp=reshape(st(:,i,i),nt,1);
     Y = fft(tsamp);
@@ -52,5 +52,5 @@ for i=1:124
  
 end
 
-%    s=surf(fftsurf);
-%    s.EdgeColor = 'none';
+%     s=surf(fftsurf);
+%     s.EdgeColor = 'none';
