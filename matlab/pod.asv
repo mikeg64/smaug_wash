@@ -17,7 +17,7 @@ extension='.out';
 %rdirectory='spic_5b2_2_bv100G';
 
 bdir='/Users/mikegriffiths/proj';
-rdirectory='/washmc-data/uni6';
+rdirectory='/washmc-data/uni4';
 
 %directory=[bdir,rdirectory,'/matlabdat/'];
 directory=[bdir,rdirectory,'/'];
@@ -40,8 +40,8 @@ matfile=[directory,'hhzverustime.mat'];
 %dtplot=evel1Mm_vh;  %vertical section at 1Mm  31
 %dtplot=evelp5Mm;  %vertical section at 0.5Mm 15
 
-nt=1270;
-%nt=635;
+%nt=1270;
+nt=635;
 %S=evelv1Mm;  %vertical section at 0.5Mm 15
 evelv=evelchrom_vh;
 S=evelv(:,:,1:nt);
@@ -99,77 +99,10 @@ lambda = diag(SIG).^2; % lambda are the eigenvalues
 
 
 
-st=360;  %selected time
+
 %plot side by side specific mode and reconstructed image
 
-  %f=figure('Visible','off','IntegerHandle','Off');
-  f=figure;
-  set(f, 'Units', 'centimeters');
-  set(f, 'Position', [2 2 28 34]);
-  hold on;
-  
-  t=tiledlayout(3,1)
-nexttile
-  %plot mode here
-s=surf(evelv(:,:,st));
-s.EdgeColor = 'none';
-%zlim([-17 -5])
-set(h,'yscale','log');
-%set(h,'zscale','log');
-colormap(jet);
-colorbar()
-view(2)
-xlabel('Mode Number  orig')
-ylabel('Frequency (mHz)')
-  
-  
-  
-    nexttile
-    hold on
 
 
- mod1=reshape(Utilde_k(st,:),[124,124]);
-  %plot mode here
-  s=surf(mod1);
-s.EdgeColor = 'none';
-%zlim([-17 -5])
-set(h,'yscale','log');
-%set(h,'zscale','log');
-colormap(jet);
-colorbar()
-view(2)
-xlabel('Mode Number  1')
-ylabel('Frequency (mHz)')
 
-  
-  
-    nexttile
-    hold on
- %plot reconstructed
- 
- %h=gca
- k=2
- Utilde_k = A(:,k)*PHI(:,k)'; % Reconstruction on mode k
-  mod2=reshape(Utilde_k(st,:),[124,124]);
-s=surf(mod2);
-s.EdgeColor = 'none';
-%zlim([-17 -5])
-set(h,'yscale','log');
-%set(h,'zscale','log');
-colormap(jet);
-colorbar()
-view(2)
-xlabel('Mode Number 2')
-ylabel('Frequency (mHz)')
- 
- 
 
- 
- 
- 
- 
- 
- 
- 
-    
-    

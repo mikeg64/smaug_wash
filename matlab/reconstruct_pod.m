@@ -43,7 +43,7 @@ ylabel('|P1(f)|')
 
 fftsurf=zeros(636,124);
 for i=1:124
-    tsamp=reshape(st(:,i,i),nt,1);
+    tsamp=reshape(st(:,36,i),nt,1);
     Y = fft(tsamp);
     P2 = abs(Y/L);
     P1 = P2(1:L/2+1);
