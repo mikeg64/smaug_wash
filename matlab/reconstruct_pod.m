@@ -3,9 +3,9 @@
 
 %first run the script tpod
 % Reconstruction on mode k
-k = 6; % for example
+k = 3; % for example
 
-md=45;
+md=36;
 Utilde_k_s = A_s(:,k)*PHI_s(:,k)';
 % Normalization to match direct and snapshot modes (optional)
 PHI = normc(PHI_s); % Spatial modes
@@ -18,11 +18,9 @@ st=reshape(Utilde_k,[nt,124,124]);
 
 samp=reshape(st(25,:,:),124,124);
 
-s=surf(samp);
 
-s.EdgeColor = 'none';
 
-tsamp=reshape(st(:,md,md),nt,1);
+tsamp=reshape(st(:,md,59),nt,1);
 
 
 Fs=1;

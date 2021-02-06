@@ -23,7 +23,9 @@ rdirectory='/washmc-data/uni6';
 directory=[bdir,rdirectory,'/'];
 
 
+st=360;  %selected time
 
+ks=[1 2 3 4 5 6]; %selected modes
 
 %matfile=[directory,'vvzverustime.mat'];
 matfile=[directory,'hhzverustime.mat'];
@@ -82,7 +84,7 @@ A_s = A_s(:, ilam_s); % These are the temporal modes
 % Calculate spatial coefficients
 PHI_s = U'*A_s;
 % Reconstruction on mode k
-k = 1; % for example
+k = ks(1); % for example
 Utilde_k_s = A_s(:,k)*PHI_s(:,k)';
 % Normalization to match direct and snapshot modes (optional)
 PHI = normc(PHI_s); % Spatial modes
@@ -99,77 +101,192 @@ lambda = diag(SIG).^2; % lambda are the eigenvalues
 
 
 
-st=360;  %selected time
-%plot side by side specific mode and reconstructed image
-
-  %f=figure('Visible','off','IntegerHandle','Off');
-  f=figure;
-  set(f, 'Units', 'centimeters');
-  set(f, 'Position', [2 2 28 34]);
-  hold on;
+ %f1=figure('Visible','off','IntegerHandle','Off');
+  f1=figure;
   
-  t=tiledlayout(3,1)
-nexttile
-  %plot mode here
+
+  
+   %plot mode here
 s=surf(evelv(:,:,st));
 s.EdgeColor = 'none';
 %zlim([-17 -5])
-set(h,'yscale','log');
+%set(h,'yscale','log');
 %set(h,'zscale','log');
 colormap(jet);
 colorbar()
 view(2)
-xlabel('Mode Number  orig')
-ylabel('Frequency (mHz)')
+
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+ 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
+
   
   
-  
-    nexttile
-    hold on
+  hold off;
 
 
- mod1=reshape(Utilde_k(st,:),[124,124]);
+
+%plot side by side specific mode and reconstructed image
+
+  %f=figure('Visible','off','IntegerHandle','Off');
+  f2=figure;
+  set(f2, 'Units', 'centimeters');
+  set(f2, 'Position', [2 2 28 34]);
+  hold on;
+  
+  t=tiledlayout(3,2)
+nexttile
+  
+ mi=1
+ Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ mod{mi}=reshape(Utilde_k(st,:),[124,124]);
   %plot mode here
-  s=surf(mod1);
+  s=surf(mod{mi});
 s.EdgeColor = 'none';
 %zlim([-17 -5])
-set(h,'yscale','log');
+%set(h,'yscale','log');
 %set(h,'zscale','log');
 colormap(jet);
 colorbar()
 view(2)
-xlabel('Mode Number  1')
-ylabel('Frequency (mHz)')
 
-  
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+ 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
+
+title('Mode',num2str(ks(mi)));
+
+
+
+
+    nexttile
+    hold on
+
+
+ mi=2;
+ Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+  %plot mode here
+  s=surf(mod{mi});
+s.EdgeColor = 'none';
+%zlim([-17 -5])
+%set(h,'yscale','log');
+%set(h,'zscale','log');
+colormap(jet);
+colorbar()
+view(2)
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+ 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
+
+title('Mode',num2str(ks(mi)));
+
   
     nexttile
     hold on
- %plot reconstructed
  
- %h=gca
- k=2
- Utilde_k = A(:,k)*PHI(:,k)'; % Reconstruction on mode k
-  mod2=reshape(Utilde_k(st,:),[124,124]);
-s=surf(mod2);
+ 
+  mi=3
+ Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+  %plot mode here
+  s=surf(mod{mi});
 s.EdgeColor = 'none';
 %zlim([-17 -5])
-set(h,'yscale','log');
+%set(h,'yscale','log');
 %set(h,'zscale','log');
 colormap(jet);
 colorbar()
 view(2)
-xlabel('Mode Number 2')
-ylabel('Frequency (mHz)')
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
  
- 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
 
- 
- 
- 
- 
- 
- 
- 
+title('Mode',num2str(ks(mi)));
+
+
+   nexttile
+    hold on
     
+    
+  mi=4
+ Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+  %plot mode here
+  s=surf(mod{mi});
+s.EdgeColor = 'none';
+%zlim([-17 -5])
+%set(h,'yscale','log');
+%set(h,'zscale','log');
+colormap(jet);
+colorbar()
+view(2)
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+ 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
+
+title('Mode',num2str(ks(mi)));
+
+
+   nexttile
+    hold on    
+ 
+ 
+   mi=5
+ Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+  %plot mode here
+  s=surf(mod{mi});
+s.EdgeColor = 'none';
+%zlim([-17 -5])
+%set(h,'yscale','log');
+%set(h,'zscale','log');
+colormap(jet);
+colorbar()
+view(2)
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+ 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
+
+title('Mode',num2str(ks(mi)));
+
+
+   nexttile
+    hold on
+ 
+ 
+   mi=6
+ Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+  %plot mode here
+  s=surf(mod{mi});
+s.EdgeColor = 'none';
+%zlim([-17 -5])
+%set(h,'yscale','log');
+%set(h,'zscale','log');
+colormap(jet);
+colorbar()
+view(2)
+  set(gca,'XTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+  set(gca,'YTickLabel',{'0';'0.65';'1.29'; '1.94' ; '2.58'; '3.23'; '3.87';'4.52' });
+ 
+   xlabel('x-distance (Mm)'); 
+    ylabel('y-distance (Mm)'); 
+
+title('Mode',num2str(ks(mi)));
+
+
+  
     
