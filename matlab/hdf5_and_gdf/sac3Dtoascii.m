@@ -10,25 +10,25 @@
 %filename='spruit.gdf';
 
 
-directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni5/';
+directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni8/';
 %ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni3/';
-ndirectory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni7/h5/';
+ndirectory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni8/';
 
 extension='.out';
-nextension='.h5';
+nextension='.ini';
 
 
 
 
 
 
-for i=1:20:1269
+for i=1079:1:1080
 
 id=int2str(1000*i);
 sacfilename=[directory,'washmc__',id,extension];
 %timetext=['time=',num2str(250*i/1000),'s'];
 timetext=['time=',num2str(i/1000),'s'];
-gdffilename=[ndirectory,'washmc_',id,nextension];
+asciifilename=[ndirectory,'washmc_asc_',id,nextension];
 
 simparams=sim_params;
 simgridinfo=sim_gridinfo;
@@ -101,6 +101,8 @@ clear tmp;
 fclose(fid);
 
 
+
+
 %write the sac data into the created structures
 simparams.unique_identifier=headline;
 simparams.current_iteration=it;         
@@ -137,8 +139,9 @@ end
 
 
 
-disp('writing h5 file');
-writegdf3D(gdffilename,simparams,simgridinfo,simdata);
+disp('writing ascii file');
+writesac3D(asciifilename,simparams, simgridinfo, simdata, 'ascii');
+
 
 
 end

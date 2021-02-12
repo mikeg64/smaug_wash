@@ -17,9 +17,9 @@ module load apps/matlab/2018b
 
 #export TIMECOUNTER=0
 #source timeused
-   matlab -nosplash -r "sac3Dtohdf5"
+   matlab -nosplash -r "sac3Dtoascii"
 #source timeused
 
-cd /fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni7
+#cd /fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6
 
-tar -zcvf h5.tgz h5
+#tar -zcvf h5.tgz h5

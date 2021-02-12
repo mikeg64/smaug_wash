@@ -13,8 +13,12 @@
 
 #start the pvpython
 
-singularity exec    /usr/local/packages/singularity/images/paraview/pv-v5.7.1-osmesa-py3.simg  pvpython stream_contour_extract_jpg_loop-linesource.py
+#singularity exec    /usr/local/packages/singularity/images/paraview/pv-v5.7.1-osmesa-py3.simg  pvpython stream_contour_extract_jpg_loop-linesource.py
 
 #singularity exec    /usr/local/packages/singularity/images/paraview/pv-v5.7.1-osmesa-py3.simg  pvpython hello.py
 
 
+#singularity exec    /usr/local/packages/singularity/images/paraview/pv-v5.7.1-osmesa-py3.simg  pvpython velslice_magtotslice_extract_jpg_loop.py
+
+
+singularity exec    /usr/local/packages/singularity/images/paraview/pv-v5.7.1-osmesa-py3.simg  pvpython etot_contour_vz_slice_b_stream_v_glyphs_jpg_loop.py

@@ -7,12 +7,12 @@
 %directory='/storage2/mikeg/results/spic4p3a_0_1_3d/';
 %directory='/storage2/mikeg/results/spic6p7a_0_0_3d/';
 %directory='/storage2/mikeg/results/spic2p3a_0_3_3d/';
-directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/';
-%directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni6/';
+directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni7/';
+%directory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni7/';
 extension='.out';
 %bdir='/shared/sp2rc2/Shared/simulations/washmc/';
 bdir='/fastdata/cs1mkg/smaug_wash/';
-rdirectory='washmc_2p5_2p5_12p5_mach180_uni6';
+rdirectory='washmc_2p5_2p5_12p5_mach180_uni7';
 nt=1270;
 
 
@@ -63,9 +63,9 @@ evelvp5Mm_bz=zeros(124,124,nt);  %vertical section at 0.5Mm 15
 evelchrom_bz=zeros(124,124,nt);  %  horizontal section in chrom at  20
 eveltran_bz=zeros(124,124,nt);   %  horizontal section in transition layer at 42
 evelcor_bz=zeros(124,124,nt);    %  horizontal section in corona at 90
-load(wspacename);
-nt=1270;
-for i=559:1:nt
+%load(wspacename);
+%nt=1270;
+for i=1:1:nt
 %for i=1:100:nt
 %for i=1519:2632
 %for i=2631:2632

@@ -17,7 +17,7 @@ extension='.out';
 %rdirectory='spic_5b2_2_bv100G';
 
 bdir='/Users/mikegriffiths/proj';
-rdirectory='/washmc-data/uni5';
+rdirectory='/washmc-data/uni6';
 
 %directory=[bdir,rdirectory,'/matlabdat/'];
 directory=[bdir,rdirectory,'/'];
@@ -25,8 +25,7 @@ directory=[bdir,rdirectory,'/'];
 
 st=360;  %selected time
 
-ks=[1 3 5 7 9 11]; %selected modes
-%ks=[2 4 6 8 10 12]; %selected modes
+ks=[50 100 500 1000 5000 10000]; %selected modes
 
 %matfile=[directory,'vvzverustime.mat'];
 matfile=[directory,'hhzverustime.mat'];
@@ -141,8 +140,27 @@ view(2)
 nexttile
   
  mi=1
- Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
- mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+%  Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+%  mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ 
+ 
+  %Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ 
+ 
+ %mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ mod{mi}=0;
+ for i=1:1:50
+%      mi=i;
+     Utilde_k = A(:,i)*PHI(:,i)'; 
+     modt=reshape(Utilde_k(st,:),[124,124]);
+     mod{mi}=mod{mi}+modt;     
+ end
+ 
+ 
+ 
+ 
+ 
+ 
   %plot mode here
   s=surf(mod{mi});
 s.EdgeColor = 'none';
@@ -159,7 +177,8 @@ view(2)
    xlabel('x-distance (Mm)'); 
     ylabel('y-distance (Mm)'); 
 
-title('Mode',num2str(ks(mi)));
+%title('Mode',num2str(ks(mi)));
+title('Mode 1-50');
 
 
 
@@ -171,6 +190,23 @@ title('Mode',num2str(ks(mi)));
  mi=2;
  Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
  mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ 
+ 
+  %Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ 
+ 
+ %mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ mod{mi}=0;
+ for i=50:1:100
+%      mi=i;
+     Utilde_k = A(:,i)*PHI(:,i)'; 
+     modt=reshape(Utilde_k(st,:),[124,124]);
+     mod{mi}=mod{mi}+modt;     
+ end
+ 
+ 
+ 
+ 
   %plot mode here
   s=surf(mod{mi});
 s.EdgeColor = 'none';
@@ -186,16 +222,27 @@ view(2)
    xlabel('x-distance (Mm)'); 
     ylabel('y-distance (Mm)'); 
 
-title('Mode',num2str(ks(mi)));
-
+%title('Mode',num2str(ks(mi)));
+title('Mode 50-100');
   
     nexttile
     hold on
  
  
   mi=3
- Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
- mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+%  Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+%  mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ 
+ 
+  mod{mi}=0;
+ for i=100:1:250
+%      mi=i;
+     Utilde_k = A(:,i)*PHI(:,i)'; 
+     modt=reshape(Utilde_k(st,:),[124,124]);
+     mod{mi}=mod{mi}+modt;     
+ end
+ 
+ 
   %plot mode here
   s=surf(mod{mi});
 s.EdgeColor = 'none';
@@ -211,7 +258,8 @@ view(2)
    xlabel('x-distance (Mm)'); 
     ylabel('y-distance (Mm)'); 
 
-title('Mode',num2str(ks(mi)));
+%title('Mode',num2str(ks(mi)));
+title('Mode 100-250');
 
 
    nexttile
@@ -219,8 +267,22 @@ title('Mode',num2str(ks(mi)));
     
     
   mi=4
- Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
- mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+%  Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+%  mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ 
+ 
+  mod{mi}=0;
+ for i=250:1:500
+%      mi=i;
+     Utilde_k = A(:,i)*PHI(:,i)'; 
+     modt=reshape(Utilde_k(st,:),[124,124]);
+     mod{mi}=mod{mi}+modt;     
+ end
+ 
+ 
+ 
+ 
+ 
   %plot mode here
   s=surf(mod{mi});
 s.EdgeColor = 'none';
@@ -236,7 +298,8 @@ view(2)
    xlabel('x-distance (Mm)'); 
     ylabel('y-distance (Mm)'); 
 
-title('Mode',num2str(ks(mi)));
+%title('Mode',num2str(ks(mi)));
+title('Mode 250-500');
 
 
    nexttile
@@ -244,15 +307,15 @@ title('Mode',num2str(ks(mi)));
  
  
    mi=5
-  Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
-  mod{mi}=reshape(Utilde_k(st,:),[124,124]);
-%mod{mi}=0;
-%  for i=10:2:100
-%      %mi=i;
-%      Utilde_k = A(:,i)*PHI(:,i)'; 
-%      modt=reshape(Utilde_k(st,:),[124,124]);
-%      mod{mi}=mod{mi}+modt;     
-%  end
+%  Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+%  mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+mod{mi}=0;
+ for i=500:1:750
+     %mi=i;
+     Utilde_k = A(:,i)*PHI(:,i)'; 
+     modt=reshape(Utilde_k(st,:),[124,124]);
+     mod{mi}=mod{mi}+modt;     
+ end
  
  
   %plot mode here
@@ -270,7 +333,8 @@ view(2)
    xlabel('x-distance (Mm)'); 
     ylabel('y-distance (Mm)'); 
 
-title('Mode',num2str(ks(mi)));
+%title('Mode',num2str(ks(mi)));
+title('Mode 500-750');
 
 
    nexttile
@@ -278,17 +342,17 @@ title('Mode',num2str(ks(mi)));
  
  
    mi=6
- Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
+ %Utilde_k = A(:,ks(mi))*PHI(:,ks(mi))'; % Reconstruction on mode k
  
  
- mod{mi}=reshape(Utilde_k(st,:),[124,124]);
-%  mod{mi}=0;
-%  for i=100:5:1000
-% %      mi=i;
-%      Utilde_k = A(:,i)*PHI(:,i)'; 
-%      modt=reshape(Utilde_k(st,:),[124,124]);
-%      mod{mi}=mod{mi}+modt;     
-%  end
+ %mod{mi}=reshape(Utilde_k(st,:),[124,124]);
+ mod{mi}=0;
+ for i=750:1:1000
+%      mi=i;
+     Utilde_k = A(:,i)*PHI(:,i)'; 
+     modt=reshape(Utilde_k(st,:),[124,124]);
+     mod{mi}=mod{mi}+modt;     
+ end
   %plot mode here
   s=surf(mod{mi});
 s.EdgeColor = 'none';
@@ -304,7 +368,8 @@ view(2)
    xlabel('x-distance (Mm)'); 
     ylabel('y-distance (Mm)'); 
 
-title('Mode',num2str(ks(mi)));
+%title('Mode',num2str(ks(mi)));
+title('Mode 750-1000');
 
 
   

@@ -11,6 +11,7 @@ module load apps/matlab/2018b
 
 #export TIMECOUNTER=0
 #source timeused
-   matlab -nosplash -r "plotsecs_array"
+#   matlab -nosplash -r "plotsecs_densslice_vecarrows_array"
+   matlab -nosplash -nodisplay -r "plotsecs_array"
 #source timeused
 
