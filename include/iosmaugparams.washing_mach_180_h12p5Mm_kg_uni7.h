@@ -98,7 +98,7 @@ char configfile[300];
 //char *cfgfile="configs/3D_10_10_6_tube_asc.ini";
 //char *cfgfile="configs/spruit_const_asc.ini";
 //char *cfgfile="configs/3D_10_10_6_asc.ini";
-char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni7/washmc_asc_544000.ini";
+char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni7/washmc_asc_1089000.ini";
 //char *cfgfile="/fastdata/cs1mkg/smaug/washing_mach/washmc_asc_499000.ini";
 
 
@@ -158,8 +158,8 @@ printf("runsim 1%d \n",nt);
 for(i=0;i<nt;i++)
 		t[i]=i*dt;
 
-p->qt=544.0;
-p->it=544000;
+p->qt=1089.0;
+p->it=1089000;
 
 //p->qt=0;
 //p->it=0;

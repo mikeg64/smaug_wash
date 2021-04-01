@@ -98,8 +98,8 @@ char configfile[300];
 //char *cfgfile="configs/3D_10_10_6_tube_asc.ini";
 //char *cfgfile="configs/spruit_const_asc.ini";
 //char *cfgfile="configs/3D_10_10_6_asc.ini";
-char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni8/washmc_asc_547000.ini";
-//char *cfgfile="/fastdata/cs1mkg/smaug_wash/washing_mach/washmc_asc_547000.ini";
+char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni11/washmc_asc_540000.ini";
+//char *cfgfile="/fastdata/cs1mkg/smaug/washing_mach/washmc_asc_499000.ini";
 
 
 //char *cfgfile="configs/3D_128_2p5_2p5_12p5_p0375T_asc_udvmft.ini";
@@ -112,7 +112,7 @@ char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni8/wash
 
 //used for initiali configuration
 //char *cfgout="configs/3D_10_10_6_tube_bin.ini";
-char *cfgout="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni8/washmc_";
+char *cfgout="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni11/washmc_";
 
 
 struct params *d_p;
@@ -158,8 +158,8 @@ printf("runsim 1%d \n",nt);
 for(i=0;i<nt;i++)
 		t[i]=i*dt;
 
-p->qt=547.0;
-p->it=547000;
+p->qt=540.0;
+p->it=540000;
 
 //p->qt=0;
 //p->it=0;
