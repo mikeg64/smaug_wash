@@ -20,6 +20,6 @@ module load apps/matlab/2018b
   matlab -nosplash -r "sac3Dtohdf5"
 #source timeused
 
-cd /fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni11
+cd /fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni5
 
-tar -zcvf h5.tgz h5
+tar -zcvf h5min.tgz h5min

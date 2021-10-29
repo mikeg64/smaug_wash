@@ -10,9 +10,9 @@
 %filename='spruit.gdf';
 
 
-directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni11/';
+directory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni9/';
 %ndirectory='/shared/sp2rc2/Shared/simulations/washmc/washmc_2p5_2p5_12p5_mach180_uni3/';
-ndirectory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni11/h5/';
+ndirectory='/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni9/h5min/';
 
 extension='.out';
 nextension='.h5';
@@ -22,7 +22,7 @@ nextension='.h5';
 
 
 
-for i=1:1:1094
+for i=1:50:1082
 
 id=int2str(1000*i);
 sacfilename=[directory,'washmc__',id,extension];
