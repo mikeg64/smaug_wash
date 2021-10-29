@@ -98,11 +98,11 @@ char configfile[300];
 //char *cfgfile="configs/3D_10_10_6_tube_asc.ini";
 //char *cfgfile="configs/spruit_const_asc.ini";
 //char *cfgfile="configs/3D_10_10_6_asc.ini";
-//char *cfgfile="/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni1/washmc_asc_635000.ini";
+char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/washmc_asc_543000.ini";
 //char *cfgfile="/fastdata/cs1mkg/smaug/washing_mach/washmc_asc_499000.ini";
 
 
-char *cfgfile="configs/3D_128_2p5_2p5_12p5_asc_udvmft.ini";
+//char *cfgfile="configs/3D_128_2p5_2p5_12p5_asc_udvmft.ini";
 //char *cfgfile="zero1_BW_bin.ini";
 //char *cfgout="3D_tube_128_128_128";
 //char *cfgout="/fastdata/cs1mkg/sac_cuda/out_ndriver_nohyp_npgft/3D_tube_128_128_128";
@@ -112,7 +112,7 @@ char *cfgfile="configs/3D_128_2p5_2p5_12p5_asc_udvmft.ini";
 
 //used for initiali configuration
 //char *cfgout="configs/3D_10_10_6_tube_bin.ini";
-char *cfgout="/fastdata-sharc/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/washmc_";
+char *cfgout="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/washmc_";
 
 
 struct params *d_p;
@@ -158,11 +158,11 @@ printf("runsim 1%d \n",nt);
 for(i=0;i<nt;i++)
 		t[i]=i*dt;
 
-//p->qt=635.0;
-//p->it=635000;
+p->qt=543.0;
+p->it=543000;
 
-p->qt=0;
-p->it=0;
+//p->qt=0;
+//p->it=0;
 
 
 //real courant = wavespeed*dt/dx;
@@ -207,8 +207,8 @@ p->gamma=1.66666667;
 
 p->mu=1.0;
 p->eta=0.0;
-p->g[0]=-274.0;
-//p->g[0]=0.0;
+//p->g[0]=-274.0;
+p->g[0]=0.0;
 p->g[1]=0.0;
 p->g[2]=0.0;
 #ifdef USE_SAC_3D
