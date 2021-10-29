@@ -2,7 +2,7 @@
 
 #$ -l mem=16G
 #$ -l rmem=16G
-#$ -N con2h5
+#$ -N convert2h5
 #$ -j y
 ##$ -t 5-8:1
 #$ -V 
@@ -17,9 +17,9 @@ module load apps/matlab/2018b
 
 #export TIMECOUNTER=0
 #source timeused
-   matlab -nosplash -r "sac3Dtohdf5"
+  matlab -nosplash -r "sac3Dtohdf5"
 #source timeused
 
-cd /fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni7
+cd /fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni11
 
 tar -zcvf h5.tgz h5
