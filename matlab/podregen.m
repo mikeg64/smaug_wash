@@ -2,7 +2,7 @@
 
 
 k = 100; % for example
-nt=635;
+nt=1625;
 Utilde_k_s = A_s(:,k)*PHI_s(:,k)';
 % Normalization to match direct and snapshot modes (optional)
 PHI = normc(PHI_s); % Spatial modes

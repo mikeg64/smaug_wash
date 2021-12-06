@@ -91,6 +91,8 @@ real tmax = 0.2;
 int steeringenabled=1;
 int finishsteering=0;
 char configfile[300];
+
+//char *cfgfile="configs/3D_128_2p5_2p5_12p5_asc_udvmft.ini";
 //char *cfgfile="zero1.ini";
 //char *cfgfile="3D_128_128_128_asc_50.ini";
 //char *cfgfile="3D_tubeact_128_128_128_asc_50.ini";
@@ -98,7 +100,7 @@ char configfile[300];
 //char *cfgfile="configs/3D_10_10_6_tube_asc.ini";
 //char *cfgfile="configs/spruit_const_asc.ini";
 //char *cfgfile="configs/3D_10_10_6_asc.ini";
-char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/washmc_asc_543000.ini";
+char *cfgfile="/fastdata/cs1mkg/smaug_wash/washmc_2p5_2p5_12p5_mach180_uni6/washmc_asc_536000.ini";
 //char *cfgfile="/fastdata/cs1mkg/smaug/washing_mach/washmc_asc_499000.ini";
 
 
@@ -158,11 +160,11 @@ printf("runsim 1%d \n",nt);
 for(i=0;i<nt;i++)
 		t[i]=i*dt;
 
-p->qt=543.0;
-p->it=543000;
+p->qt=536.0;
+p->it=536000;
 
 //p->qt=0;
-//p->it=0;
+/p->it=0;
 
 
 //real courant = wavespeed*dt/dx;

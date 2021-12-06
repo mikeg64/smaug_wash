@@ -17,7 +17,7 @@ extension='.out';
 %rdirectory='spic_5b2_2_bv100G';
 
 bdir='/Users/mikegriffiths/proj';
-rdirectory='/washmc-data/uni5';
+rdirectory='/washmc-data/uni11';
 
 %directory=[bdir,rdirectory,'/matlabdat/'];
 directory=[bdir,rdirectory,'/'];
@@ -29,7 +29,7 @@ ks=[1 3 5 7 9 11]; %selected modes
 %ks=[2 4 6 8 10 12]; %selected modes
 
 %matfile=[directory,'vvzverustime.mat'];
-matfile=[directory,'hhzverustime.mat'];
+matfile=[directory,'hhzverustime1.mat'];
 load(matfile);
 
 %load('/data/cs1mkg/smaug_realpmode/matlab/timedistplot/spic_4b2_2_bv20G_xdir_vvt.mat');
@@ -43,7 +43,7 @@ load(matfile);
 %dtplot=evel1Mm_vh;  %vertical section at 1Mm  31
 %dtplot=evelp5Mm;  %vertical section at 0.5Mm 15
 
-nt=1270;
+nt=1625;
 %nt=635;
 %S=evelv1Mm;  %vertical section at 0.5Mm 15
 evelv=evelchrom_vh;

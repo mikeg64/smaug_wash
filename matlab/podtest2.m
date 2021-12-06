@@ -18,7 +18,7 @@ directory=[bdir,rdirectory,'/'];
 %matfile=[directory,'vvzverustime.mat'];
 matfile=[directory,'hhzverustime.mat'];
 %load(matfile);
-nt=900;
+nt=1625;
 evelv=evelv2Mm_v;
 evelb=evelv2Mm_bz;
 figure 

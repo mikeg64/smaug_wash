@@ -6,11 +6,11 @@
 %pvvt300_00.m
 %these generated from 
 name={'hhzverustime.mat','hmagverustime.mat','vvzverustime.mat','vmagverustime.mat'};
-model={'uni1','uni2','uni3','uni4'};
+model={'uni1','uni2','uni3','uni6'};
 df1={'evel1Mm', 'evel2Mm', 'evelp5Mm'};  %vmagverustime
 df2={'evelv1Mm', 'evelv2Mm', 'evelvp5Mm'};  %vvzverustime
 
-inam=4;
+inam=1;
 imod=4;
 %ndirectory='/fastdata/cs1mkg/smaug/spic6b0_3d_rep/images';
 %ndirectory='/fastdata/cs1mkg/smaug/spic5b0_3d/images';
@@ -42,16 +42,27 @@ figure;
 %load('/fastdata/cs1mkg/smaug/matlabdat/spicule4b0_3dtranint.mat');
 %load('/fastdata/cs1mkg/smaug/matlabdat/spic6b0_3d_xdir_vverustime.mat');
 
+
+
+bdir='/Users/mikegriffiths/proj';
+rdirectory='/washmc-data';
+
+%directory=[bdir,rdirectory,'/matlabdat/'];
+%directory=[bdir,rdirectory,'/'];
+ndirectory=[bdir,rdirectory,'/'];
+
+
 file=[ndirectory,model{imod},'/',name{inam} ];
 load(file);
 %dtplot=evelchrom_vh;  %  horizontal section in chrom at  20
-dtplot=evel1Mm;   %  horizontal section in transition layer at 42
+dtplot=evelv1Mm_v;   %  horizontal section in transition layer at 42
 %dtplot=evelcor_vh;    %  horizontal section in corona at 90
 
 %dtplot=evel2Mm_vh;  %vertical section at 2Mm  62
 %dtplot=evel1Mm_vh;  %vertical section at 1Mm  31
 %dtplot=evelp5Mm_vh;  %vertical section at 0.5Mm 15
 siz=size(dtplot);
+%dtp00=reshape(dtplot(:,62,:),124,siz(3));
 dtp00=reshape(dtplot(:,62,:),124,siz(3));
 smode='0,0';
 subplot(1,3,1);
@@ -94,7 +105,7 @@ clear('evelv1Mm', 'evelv2Mm', 'evelvp5Mm');
 file=[ndirectory,model{imod},'/',name{inam} ];
 load(file);
 %dtplot=evelchrom_vh;  %  horizontal section in chrom at  20
-dtplot=evel2Mm;   %  horizontal section in transition layer at 4
+dtplot=evelv2Mm_v;   %  horizontal section in transition layer at 4
 
 
 %dtplot=evelchrom_vh;  %  horizontal section in chrom at  20
@@ -152,7 +163,7 @@ clear('evelv1Mm', 'evelv2Mm', 'evelvp5Mm');
 file=[ndirectory,model{imod},'/',name{inam} ];
 load(file);
 %dtplot=evelchrom_vh;  %  horizontal section in chrom at  20
-dtplot=evelp5Mm;   %  horizontal section in transition layer at 4
+dtplot=evelvp5Mm_v;   %  horizontal section in transition layer at 4
 
 
 
