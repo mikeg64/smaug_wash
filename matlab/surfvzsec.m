@@ -156,24 +156,24 @@ clear tmp;
    
   %h= slice(myval,64, 64, 4);
   %figure('Visible','off','IntegerHandle','Off');
-  hold on;
+  %hold on;
   %h=slice(myval,80, 64,8);
   %h=slice(myval,96, 96,[5 49 100]);  %used for 0,1 mode
   %h=slice(myval,96, 96,[5 49 100]);  %used for 1,1 mode
  % h=slice(myval,108, 108,[5 49 85]);  %used for 2,2 mode
   %h=slice(myval,108, 108,[5 49]);  %used for 2,2 mode
   %h=slice(myval,108, 96,[5 49 100]);  %used for 0,1 mode
-  %h=slice(myval,32, 32,[5 49 100]);  %used for 0,0 mode
+  h=slice(myval,32, 32,[3 78 100]);  %used for 0,0 mode
   %h=slice(myval,65, 65,[5 49 100]);
   %h=slice(myval,105, 96,8);
   %sect=myval( :,:,2);
- sect=myval( :,:,3);
+% sect=myval( :,:,3);
 %   for isect=50:55
 %     sect=sect+myval( :,:,isect);  
 %   end
 %  sect=myval( :,:,2);
- h=surf(sect','LineStyle','none');
-   view(0,90);
+% h=surf(sect','LineStyle','none');
+%   view(0,90);
  %view(-37.5,15);
 %   set(gca,'CameraPosition',[70 70 17820]);
 %   set(gca,'CameraTarget',[70 70 70]);
@@ -181,7 +181,7 @@ clear tmp;
 %   set(gca,'CameraUpVector',[0 1 0]);
 set(gca,'Xlim',[0 124],'Ylim',[0 124]);
 
-
+set(gca,'Zlim',[0 40]);
 
   hold on;
    set(h,'EdgeColor','none','FaceColor','interp');
@@ -298,8 +298,8 @@ set(gca,'Xlim',[0 124],'Ylim',[0 124]);
 % maxval=3e-5;
 
   
-    minval=-50;
-     maxval=50;
+    minval=-20;
+     maxval=20;
   cmap=colormap(jet(256));
   caxis([minval maxval]);
   %caxis([-0.6 0.6]);
