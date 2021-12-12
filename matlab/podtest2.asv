@@ -120,19 +120,16 @@ figure(5);
 evelv=evelv1Mm_v;
 evelb=evelv1Mm_bz;
 
-ssvz=reshape(evelv(78,:,t1),[124,1]);
-subplot(1,2,1);
-plot(ssvz)
-ylim([-2.5 2.5])
-
-%hold on
+ss1=reshape(evelv(62,:,1:nt),[124,nt]);
+ss1f=ss1(62,:);
+plot(log(abs(ss1(62,:))))
+hold on
 
 %subplot(1,3,2)
-subplot(1,2,2);
-ssbz=reshape(10^5*evelb(78,:,t1),[124,1]);
-plot(ssbz)
-ylim([-20 20])
 
+ss2=reshape(10^5*evelb(:,62,1:nt),[124,nt]);
+ss2f=ss2(62,:);
+plot(log(abs(ss2(62,:))))
 
 
 
